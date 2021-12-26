@@ -6,9 +6,9 @@ This project aims to implements stubs and documentation for all of the classes a
 
 Resources:
 
-* [Official Documentation](https://lego.github.io/MINDSTORMS-Robot-Inventor-hub-API/)
-* [LEGO MINDSTORMS Robot Inventor](https://www.microsoft.com/en-us/p/lego-mindstorms-robot-inventor/9mtq0n7w1d6x?activetab=pivot:overviewtab)
-* [Mindstorms / SPIKE Prime / SPIKE Essential](https://github.com/gpdaniels/spike-prime)
+* Official Documentation: [MINDSTORMS-Robot-Inventor-hub-API](https://lego.github.io/MINDSTORMS-Robot-Inventor-hub-API/)
+* Required Official App: [LEGO MINDSTORMS Robot Inventor](https://www.microsoft.com/en-us/p/lego-mindstorms-robot-inventor/9mtq0n7w1d6x?activetab=pivot:overviewtab)
+* Similar Project: [Mindstorms / SPIKE Prime / SPIKE Essential](https://github.com/gpdaniels/spike-prime)
 
 # Legal
 
