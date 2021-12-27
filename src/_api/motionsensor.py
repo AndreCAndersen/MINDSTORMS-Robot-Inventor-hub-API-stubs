@@ -38,33 +38,53 @@
 >>> supervision supervision
 >>> function temperature
 >> function sleep_ms
->> type MotionSensor
->>> type __class__
->>> function __init__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> tuple __bases__
->>> dict __dict__
->>> str BACK
->>> str DOWN
->>> str FALLING
->>> str FRONT
->>> str TAPPED
->>> str UP
->>> function align_to_model
->>> function get_orientation
->>> function _orientation_from_string
->>> function get_pitch_angle
->>> function get_roll_angle
->>> function get_yaw_angle
->>> function reset_yaw_angle
->>> str LEFT_SIDE
->>> str RIGHT_SIDE
->>> function wait_for_new_orientation
->>> str SHAKEN
->>> str DOUBLE_TAPPED
->>> function get_gesture
->>> function was_gesture
->>> function wait_for_new_gesture
+
 """
+
+class MotionSensor:
+    BACK: str = 'back'
+    DOWN: str = 'down'
+    FALLING: str = 'falling'
+    FRONT: str = 'front'
+    TAPPED: str = 'tapped'
+    UP: str = 'up'
+    LEFT_SIDE: str = 'left_side'
+    RIGHT_SIDE: str = 'right_side'
+    SHAKEN: str = 'shaken'
+    DOUBLE_TAPPED: str = 'double_tapped'
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def align_to_model(self, *args, **kwargs):
+        pass
+
+    def get_orientation(self, *args, **kwargs):
+        pass
+
+    def _orientation_from_string(self, *args, **kwargs):
+        pass
+
+    def get_pitch_angle(self, *args, **kwargs):
+        pass
+
+    def get_roll_angle(self, *args, **kwargs):
+        pass
+
+    def get_yaw_angle(self, *args, **kwargs):
+        pass
+
+    def reset_yaw_angle(self, *args, **kwargs):
+        pass
+
+    def wait_for_new_orientation(self, *args, **kwargs):
+        pass
+
+    def get_gesture(self, *args, **kwargs):
+        pass
+
+    def was_gesture(self, *args, **kwargs):
+        pass
+
+    def wait_for_new_gesture(self, *args, **kwargs):
+        pass

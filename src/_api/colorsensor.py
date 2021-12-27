@@ -1,49 +1,76 @@
-"""
-> module colorsensor
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __name__
->> str __file__
->> function sleep_ms
->> int LPF2_FLIPPER_COLOR
->> dict PORTS
->> function get_sensor_value
->> function is_type
->> function clamp
->> type ColorSensor
->>> type __class__
->>> function __init__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> tuple __bases__
->>> dict __dict__
->>> function _set_mode
->>> function _get_color
->>> function get_color
->>> function get_reflected_light
->>> function get_rgb_intensity
->>> function get_red
->>> function get_green
->>> function get_blue
->>> function get_ambient_light
->>> function wait_until_color
->>> function wait_for_new_color
->>> function light_up_all
->>> function light_up
->> function newSensorDisconnectedError
->> function _get_port_device
->> list _COLORLIST
->> tuple _COMBI_MODE
->> tuple _LIGHT_MODE
->> tuple _AMBIENT_MODE
->> function _is_color_sensor
-"""
+LPF2_FLIPPER_COLOR: int = None
+PORTS: dict = None
+_COLORLIST: list = None
+_COMBI_MODE: tuple = None
+_LIGHT_MODE: tuple = None
+_AMBIENT_MODE: tuple = None
 
+def sleep_ms(*args, **kwargs):
+    pass
+
+
+def get_sensor_value(*args, **kwargs):
+    pass
+
+
+def is_type(*args, **kwargs):
+    pass
+
+
+def clamp(*args, **kwargs):
+    pass
+
+
+def newSensorDisconnectedError(*args, **kwargs):
+    pass
+
+
+def _get_port_device(*args, **kwargs):
+    pass
+
+
+def _is_color_sensor(*args, **kwargs):
+    pass
 
 class ColorSensor:
     def __init__(self, *args, **kwargs):
+        pass
+
+    def _set_mode(self, *args, **kwargs):
+        pass
+
+    def _get_color(self, *args, **kwargs):
+        pass
+
+    def get_color(self, *args, **kwargs):
+        pass
+
+    def get_reflected_light(self, *args, **kwargs):
+        pass
+
+    def get_rgb_intensity(self, *args, **kwargs):
+        pass
+
+    def get_red(self, *args, **kwargs):
+        pass
+
+    def get_green(self, *args, **kwargs):
+        pass
+
+    def get_blue(self, *args, **kwargs):
+        pass
+
+    def get_ambient_light(self, *args, **kwargs):
+        pass
+
+    def wait_until_color(self, *args, **kwargs):
+        pass
+
+    def wait_for_new_color(self, *args, **kwargs):
+        pass
+
+    def light_up_all(self, *args, **kwargs):
+        pass
+
+    def light_up(self, *args, **kwargs):
         pass

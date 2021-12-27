@@ -1,31 +1,44 @@
-"""
-> module forcesensor
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __name__
->> str __file__
->> function sleep_ms
->> int LPF2_FLIPPER_FORCE
->> dict PORTS
->> function is_type
->> type ForceSensor
->>> type __class__
->>> function __init__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> tuple __bases__
->>> dict __dict__
->>> function is_pressed
->>> function wait_until_pressed
->>> function wait_until_released
->>> function _is_pressed
->>> function get_force_newton
->>> function get_force_percentage
->> function newSensorDisconnectedError
->> function _is_force_sensor
->> function _get_port_device
-"""
+LPF2_FLIPPER_FORCE: int = None
+PORTS: dict = None
+
+def sleep_ms(*args, **kwargs):
+    pass
+
+
+def is_type(*args, **kwargs):
+    pass
+
+
+def newSensorDisconnectedError(*args, **kwargs):
+    pass
+
+
+def _is_force_sensor(*args, **kwargs):
+    pass
+
+
+def _get_port_device(*args, **kwargs):
+    pass
+
+
+class ForceSensor:
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def is_pressed(self, *args, **kwargs):
+        pass
+
+    def wait_until_pressed(self, *args, **kwargs):
+        pass
+
+    def wait_until_released(self, *args, **kwargs):
+        pass
+
+    def _is_pressed(self, *args, **kwargs):
+        pass
+
+    def get_force_newton(self, *args, **kwargs):
+        pass
+
+    def get_force_percentage(self, *args, **kwargs):
+        pass

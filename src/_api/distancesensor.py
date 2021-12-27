@@ -1,19 +1,21 @@
-"""
-> module distancesensor
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __name__
->> str __file__
->> function sleep_ms
->> int LPF2_FLIPPER_DISTANCE
->> dict PORTS
->> function is_type
->> function clamp
->> function newSensorDisconnectedError
-"""
+LPF2_FLIPPER_DISTANCE: int = None
+PORTS: dict = None
+
+
+def sleep_ms(*args, **kwargs):
+    pass
+
+
+def is_type(*args, **kwargs):
+    pass
+
+
+def clamp(*args, **kwargs):
+    pass
+
+
+def newSensorDisconnectedError(*args, **kwargs):
+    pass
 
 
 class DistanceSensor:

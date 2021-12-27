@@ -37,14 +37,13 @@
 >>> function status
 >>> supervision supervision
 >>> function temperature
->> type StatusLight
->>> type __class__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> tuple __bases__
->>> dict __dict__
->>> function off
->>> function on
+
 >> dict _COLORMAP
 """
+
+class StatusLight:
+    def off(self, *args, **kwargs):
+        pass
+
+    def on(self, *args, **kwargs):
+        pass

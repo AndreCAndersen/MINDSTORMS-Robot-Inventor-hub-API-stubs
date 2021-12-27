@@ -1,12 +1,4 @@
 """
-> module lightmatrix
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __name__
->> str __file__
 >> module hub
 >>> type __class__
 >>> str __name__
@@ -42,24 +34,44 @@
 >> function rotate_orientation
 >> function get_current_orientation
 >> function set_current_orientation
->> type LightMatrix
->>> type __class__
->>> function __init__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> function write
->>> tuple __bases__
->>> dict __dict__
->>> function off
->>> function set_pixel
->>> function show
->>> list _ALLOWED_EFFECTS
->>> function show_image
->>> function play_animation
->>> function start_animation
->>> function _perform_animation
->>> function get_orientation
->>> function set_orientation
->>> function rotate
 """
+
+class LightMatrix:
+
+    _ALLOWED_EFFECTS: list = None
+
+    def __init__(self, *args, **kwargs:
+        pass
+
+    def write(self, *args, **kwargs):
+        pass
+
+    def off(self, *args, **kwargs):
+        pass
+
+    def set_pixel(self, *args, **kwargs):
+        pass
+
+    def show(self, *args, **kwargs):
+        pass
+
+    def show_image(self, *args, **kwargs):
+        pass
+
+    def play_animation(self, *args, **kwargs):
+        pass
+
+    def start_animation(self, *args, **kwargs):
+        pass
+
+    def _perform_animation(self, *args, **kwargs):
+        pass
+
+    def get_orientation(self, *args, **kwargs):
+        pass
+
+    def set_orientation(self, *args, **kwargs):
+        pass
+
+    def rotate(self, *args, **kwargs):
+        pass
