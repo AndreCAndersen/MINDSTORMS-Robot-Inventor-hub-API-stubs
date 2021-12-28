@@ -119,8 +119,23 @@ class MotorPair:
         if speed is not None:
             assert -100 <= speed <= 100
 
-    def get_default_speed(self, *args, **kwargs):
-        pass
+    def get_default_speed(self) -> int:
+        """Returns the default motor pair speed.
+
+        Example:
+
+            from mindstorms import MSHub, Motor
+
+            hub = MSHub()
+            motor_pair_ba = MotorPair('B', 'A')
+
+            motor_pair_ba.set_default_speed(50)
+            motor_pair_ba.move(1, 'rotations', 0, 100)
+            hub.light_matrix.write('default speed =')
+            hub.light_matrix.write(motor_pair_ba.get_default_speed())
+
+        :return: The default motor pair speed.
+        """
 
     def set_default_speed(self, *args, **kwargs):
         pass
@@ -169,8 +184,52 @@ class MotorPair:
         if right_speed is not None:
             assert -100 <= right_speed <= 100
 
-    def start_tank(self, *args, **kwargs):
-        pass
+    def start_tank(self, left_speed: int, right_speed: int):
+        """Starts moving a Driving Base using differential (tank) steering. The speed of each motor can be controlled
+        independently. The motors will keep moving at the specified speed until you give them another command or
+        when your programs ends.
 
-    def start_tank_at_power(self, *args, **kwargs):
-        pass
+        Example:
+
+            from mindstorms import MSHub, MotorPair
+
+            motor_pair = MotorPair('B', 'A')
+
+            motor_pair.start_tank(100, -100)
+            # Press on the Hub's right button when you want the motors to stop.
+            hub.right_button.wait_until_pressed()
+            motor_pair.stop()
+
+        :param left_speed: The left motor's desired speed.
+        :param right_speed: The right motor's desired speed.
+        """
+        if left_speed is not None:
+            assert -100 <= left_speed <= 100
+        if right_speed is not None:
+            assert -100 <= right_speed <= 100
+
+    def start_tank_at_power(self, left_power: int, right_power: int):
+        """Starts moving a Driving Base using differential (tank) steering. The speed of each motor can be controlled
+        independently. The motors will keep moving at the specified speed until you give them another command or
+        when your programs ends.
+
+        Example:
+
+            from mindstorms import MSHub, MotorPair
+
+            motor_pair = MotorPair('B', 'A')
+
+            motor_pair.start_tank(100, -100)
+            # Press on the Hub's right button when you want the motors to stop.
+            hub.right_button.wait_until_pressed()
+            motor_pair.stop()
+
+        :param left_power: The desired amount of power for the left motor. Negative value makes the motor rotate
+        backwards.
+        :param right_power: The desired amount of power for the right motor. Negative value makes the motor rotate
+        backwards.
+        """
+        if left_power is not None:
+            assert -100 <= left_power <= 100
+        if right_power is not None:
+            assert -100 <= right_power <= 100
