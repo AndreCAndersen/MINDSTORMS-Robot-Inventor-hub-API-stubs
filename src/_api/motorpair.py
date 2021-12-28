@@ -52,7 +52,8 @@ class MotorPair:
         """Starts both motors simultaneously to move a Driving Base. The motor will keep moving at the specified
         speed until you give them another command or when your program ends.
 
-        Example
+        Example:
+
             from mindstorms import MSHub, MotorPair
 
             motor_pair = MotorPair('B', 'A')
@@ -69,13 +70,27 @@ class MotorPair:
         if speed is not None:
             assert -100 <= speed <= 100
 
-    def stop(self, *args, **kwargs):
+    def stop(self):
+        """Stops both motors simultaneously, which will stop a Driving Base. What the motors do after they stop
+        depends on the action sets in `set_stop_action()`.
+
+        Examples:
+
+            from mindstorms import MSHub, MotorPair
+
+            motor_pair = MotorPair('B', 'A')
+
+            motor_pair.start(-100, 30)
+            # Press on the Hub's right button when you want the motors to stop.
+            hub.right_button.wait_until_pressed()
+            motor_pair.stop()
+        """
         pass
 
     def move(self, amount: float, unit: Optional[str] = CM, steering: Optional[int] = 0, speed: Optional[int] = None):
         """Runs both motors simultaneously to move a Driving Base.
 
-        Example
+        Example:
 
             from mindstorms import MotorPair
 
@@ -125,8 +140,34 @@ class MotorPair:
     def set_motor_rotation(self, *args, **kwargs):
         pass
 
-    def move_tank(self, *args, **kwargs):
-        pass
+    def move_tank(self, amount: float, unit: Optional[str] = CM, left_speed: Optional[int] = None, right_speed: Optional[int] = None):
+        """ Move the Driving Base using differential (tank) steering. The speed of each motor can be controlled independently.
+
+        Example:
+
+            from mindstorms import MotorPair
+
+            motor_pair = MotorPair('B', 'A')
+            motor_pair.move_tank(10, 'cm', 25, 75)
+
+        :param amount: The amount of movement in relation to the specified unit. Negative value moves the Driving
+        Base backward instead of forward.
+        :param unit: The unit of measurement. When unit is specified as 'cm' or 'in', the amount parameter represents
+        horizontal distance the Driving Base must travel. The relationship between the motor rotations and distance
+        traveled can be adjusted using the function `set_motor_rotation()`. When unit is specified as 'rotations' or
+        'degrees', the amount parameter represents how many rotations or degrees the motor must rotate. When unit is
+        specified as 'seconds', the amount parameter represents the duration the motors must run.
+        :param left_speed: The left motor's desired speed. Negative value makes the left motor run backward. If no
+        value is specified, the default speed set by `set_default_speed()` is used.
+        :param right_speed: The right motor's desired speed. Negative value makes the right motor run backward. If no
+        value is specified, the default speed set by `set_default_speed()` is used.
+        """
+        if unit is not None:
+            assert unit in (self.CM, self.IN, self.ROTATIONS, self.DEGREES, self.SECONDS)
+        if left_speed is not None:
+            assert -100 <= left_speed <= 100
+        if right_speed is not None:
+            assert -100 <= right_speed <= 100
 
     def start_tank(self, *args, **kwargs):
         pass
