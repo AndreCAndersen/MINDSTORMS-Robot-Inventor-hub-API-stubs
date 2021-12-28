@@ -1,6 +1,7 @@
 LPF2_FLIPPER_FORCE: int = None
 PORTS: dict = None
 
+
 def sleep_ms(*args, **kwargs):
     pass
 

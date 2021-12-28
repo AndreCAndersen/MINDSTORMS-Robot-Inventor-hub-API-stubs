@@ -1,7 +1,7 @@
-BT_VCP: BT_VCP;
-USB_VCP: USB_VCP;
-json_rpc: JSONRPC;
-_NOT_CONNECTED_ERROR: str;
+BT_VCP: BT_VCP = None
+USB_VCP: USB_VCP = None
+json_rpc: JSONRPC = None
+_NOT_CONNECTED_ERROR: str = None
 
 def ticks_diff(*args, **kwargs):
     pass

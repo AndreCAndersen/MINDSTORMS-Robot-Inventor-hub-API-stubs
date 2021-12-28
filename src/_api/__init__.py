@@ -1,35 +1,45 @@
+from _api.button import Button
+from _api.lightmatrix import LightMatrix
+from _api.motionsensor import MotionSensor
+from _api.speaker import Speaker
+from _api.statuslight import StatusLight
+
+
 class MSHub:
-    pass
+    PORT_A: str = None
+    PORT_B: str = None
+    PORT_C: str = None
+    PORT_D: str = None
+    PORT_E: str = None
+    PORT_F: str = None
 
+    _light_matrix: LightMatrix = None
+    _status_light: StatusLight = None
+    _left_button: Button = None
+    _right_button: Button = None
+    _motion_sensor: MotionSensor = None
+    _speaker: Speaker = None
 
-"""
-> type MSHub
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __module__
->> str __name__
->> str __qualname__
->> tuple __bases__
->> dict __dict__
->> property speaker
->> LightMatrix _light_matrix
->> StatusLight _status_light
->> Button _left_button
->> Button _right_button
->> MotionSensor _motion_sensor
->> Speaker _speaker
->> property light_matrix
->> property status_light
->> property left_button
->> property right_button
->> property motion_sensor
->> str PORT_A
->> str PORT_B
->> str PORT_C
->> str PORT_D
->> str PORT_E
->> str PORT_F
-"""
+    @property
+    def speaker(self) -> Speaker:
+        pass
+
+    @property
+    def light_matrix(self) -> LightMatrix:
+        pass
+
+    @property
+    def status_light(self) -> StatusLight:
+        pass
+
+    @property
+    def left_button(self) -> Button:
+        pass
+
+    @property
+    def right_button(self) -> Button:
+        pass
+
+    @property
+    def motion_sensor(self) -> MotionSensor:
+        pass

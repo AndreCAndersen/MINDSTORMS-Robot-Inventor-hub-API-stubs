@@ -3,4 +3,9 @@ from _api.motor import Motor
 from _api.motorpair import MotorPair
 from _api.colorsensor import ColorSensor
 from _api.distancesensor import DistanceSensor
+from _api.speaker import Speaker
+from _api.lightmatrix import LightMatrix
+from _api.button import Button
+from _api.motionsensor import MotionSensor
+from _api.statuslight import StatusLight
 from _api.app import App

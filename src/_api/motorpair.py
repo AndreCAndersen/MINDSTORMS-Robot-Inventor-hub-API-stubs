@@ -1,24 +1,30 @@
-"""
-> module motorpair
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __name__
->> str __file__
+PORTS: dict = None
+_DISCONNECTED_ERROR: RuntimeError = None
+_MOTOR_PAIRING_ERROR: RuntimeError = None
 
->> System system
->> dict PORTS
->> function _is_motor
->> function wait_for_async
->> function clamp_speed
->> function clamp_power
->> function from_steering
->> RuntimeError _DISCONNECTED_ERROR
->> RuntimeError _MOTOR_PAIRING_ERROR
->> function clamp_steering
-"""
+
+def _is_motor(*args, **kwargs):
+    pass
+
+
+def wait_for_async(*args, **kwargs):
+    pass
+
+
+def clamp_speed(*args, **kwargs):
+    pass
+
+
+def clamp_power(*args, **kwargs):
+    pass
+
+
+def from_steering(*args, **kwargs):
+    pass
+
+
+def clamp_steering(*args, **kwargs):
+    pass
 
 
 class MotorPair:

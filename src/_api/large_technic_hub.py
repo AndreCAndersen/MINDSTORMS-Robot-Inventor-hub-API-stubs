@@ -1,78 +1,41 @@
-"""
-> module large_technic_hub
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __name__
->> str __file__
->> type Button
->>> type __class__
->>> function __init__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> tuple __bases__
->>> dict __dict__
->>> function is_pressed
->>> function was_pressed
->>> function is_released
->>> function wait_until_pressed
->>> function wait_until_released
->> module hub
->>> type __class__
->>> str __name__
->>> str __version__
->>> int BACK
->>> int BOTTOM
->>> type BT_VCP
->>> int FRONT
->>> type Image
->>> int LEFT
->>> int RIGHT
->>> int TOP
->>> type USB_VCP
->>> Battery battery
->>> bluetooth bluetooth
->>> type button
->>> dict config
->>> Display display
->>> function file_transfer
->>> function info
->>> function led
->>> Motion motion
->>> type port
->>> function power_off
->>> function repl_restart
->>> function reset
->>> Sound sound
->>> function status
->>> supervision supervision
->>> function temperature
->> type LargeTechnicHub
->>> type __class__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> tuple __bases__
->>> dict __dict__
->>> property speaker
->>> LightMatrix _light_matrix
->>> StatusLight _status_light
->>> Button _left_button
->>> Button _right_button
->>> MotionSensor _motion_sensor
->>> Speaker _speaker
->>> property light_matrix
->>> property status_light
->>> property left_button
->>> property right_button
->>> property motion_sensor
->>> str PORT_A
->>> str PORT_B
->>> str PORT_C
->>> str PORT_D
->>> str PORT_E
->>> str PORT_F
-"""
+from _api import LightMatrix, StatusLight, Button, MotionSensor, Speaker
+
+
+class LargeTechnicHub:
+    PORT_A: str = None
+    PORT_B: str = None
+    PORT_C: str = None
+    PORT_D: str = None
+    PORT_E: str = None
+    PORT_F: str = None
+
+    _light_matrix: LightMatrix = None
+    _status_light: StatusLight = None
+    _left_button: Button = None
+    _right_button: Button = None
+    _motion_sensor: MotionSensor = None
+    _speaker: Speaker = None
+
+    @property
+    def speaker(self) -> Speaker:
+        pass
+
+    @property
+    def light_matrix(self) -> LightMatrix:
+        pass
+
+    @property
+    def status_light(self) -> StatusLight:
+        pass
+
+    @property
+    def left_button(self) -> Button:
+        pass
+
+    @property
+    def right_button(self) -> Button:
+        pass
+
+    @property
+    def motion_sensor(self) -> MotionSensor:
+        pass

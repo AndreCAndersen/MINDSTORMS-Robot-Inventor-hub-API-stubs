@@ -1,58 +1,40 @@
-"""
+PORTS: dict = None
+MOTOR_TYPES: tuple = None
 
-> module motor
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __name__
->> str __file__
+def sleep_ms(*args, **kwargs):
+    pass
 
->> module hub
->>> type __class__
->>> str __name__
->>> str __version__
->>> int BACK
->>> int BOTTOM
->>> type BT_VCP
->>> int FRONT
->>> type Image
->>> int LEFT
->>> int RIGHT
->>> int TOP
->>> type USB_VCP
->>> Battery battery
->>> bluetooth bluetooth
->>> type button
->>> dict config
->>> Display display
->>> function file_transfer
->>> function info
->>> function led
->>> Motion motion
->>> type port
->>> function power_off
->>> function repl_restart
->>> function reset
->>> Sound sound
->>> function status
->>> supervision supervision
->>> function temperature
->> function sleep_ms
->> System system
->> dict PORTS
->> function _is_motor
->> function is_type
->> tuple MOTOR_TYPES
->> function newSensorDisconnectedError
->> function wait_for_async
->> function clamp_speed
->> function clamp_power
-"""
+
+def _is_motor(*args, **kwargs):
+    pass
+
+
+def is_type(*args, **kwargs):
+    pass
+
+
+def newSensorDisconnectedError(*args, **kwargs):
+    pass
+
+
+def wait_for_async(*args, **kwargs):
+    pass
+
+
+def clamp_speed(*args, **kwargs):
+    pass
+
+
+def clamp_power(*args, **kwargs):
+    pass
 
 
 class Motor:
+
+    BRAKE: str = 'brake'
+    HOLD: str = 'hold'
+    COAST: str = 'coast'
+
     def __init__(self, *args, **kwargs):
         pass
 
@@ -109,18 +91,3 @@ class Motor:
 
     def was_stalled(self, *args, **kwargs):
         pass
-
-
-"""
->> type Motor
->>> type __class__
->>> function __init__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> tuple __bases__
->>> dict __dict__
->>> str BRAKE
->>> str HOLD
->>> str COAST
-"""

@@ -1,89 +1,42 @@
-"""
-> module speaker
->> type __class__
->>> type __class__
->>> str __name__
->>> tuple __bases__
->>> dict __dict__
->> str __name__
->> str __file__
->> module hub
->>> type __class__
->>> str __name__
->>> str __version__
->>> int BACK
->>> int BOTTOM
->>> type BT_VCP
->>> int FRONT
->>> type Image
->>> int LEFT
->>> int RIGHT
->>> int TOP
->>> type USB_VCP
->>> Battery battery
->>> bluetooth bluetooth
->>> type button
->>> dict config
->>> Display display
->>> function file_transfer
->>> function info
->>> function led
->>> Motion motion
->>> type port
->>> function power_off
->>> function repl_restart
->>> function reset
->>> Sound sound
->>> function status
->>> supervision supervision
->>> function temperature
->> System system
->> module os
->>> type __class__
->>> str __name__
->>> function remove
->>> str sep
->>> type VfsLfs1
->>> function chdir
->>> function dupterm
->>> function getcwd
->>> function ilistdir
->>> function listdir
->>> function mkdir
->>> function mount
->>> function rename
->>> function rmdir
->>> function stat
->>> function statvfs
->>> function sync
->>> function umount
->>> function uname
->>> function unlink
->>> function urandom
->> type Speaker
->>> type __class__
->>> function __init__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> function stop
->>> tuple __bases__
->>> dict __dict__
->>> function beep
->>> function get_volume
->>> function set_volume
->>> function start_beep
->>> function play_sound
->>> function start_sound
->> function wait_for_async
->> str _SOUNDS_DIR
->> type SpeakerSoundProvider
->>> type __class__
->>> str __module__
->>> str __name__
->>> str __qualname__
->>> tuple __bases__
->>> dict __dict__
->>> function get_canonical_name
->>> function get_sound_files
-"""
+
+_SOUNDS_DIR: str = None
+
+
+def wait_for_async(*args, **kwargs):
+    pass
+
+
+class Speaker:
+
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def stop(self, *args, **kwargs):
+        pass
+
+    def beep(self, *args, **kwargs):
+        pass
+
+    def get_volume(self, *args, **kwargs):
+        pass
+
+    def set_volume(self, *args, **kwargs):
+        pass
+
+    def start_beep(self, *args, **kwargs):
+        pass
+
+    def play_sound(self, *args, **kwargs):
+        pass
+
+    def start_sound(self, *args, **kwargs):
+        pass
+
+
+class SpeakerSoundProvider:
+
+    def get_canonical_name(self, *args, **kwargs):
+        pass
+
+    def get_sound_files(self, *args, **kwargs):
+        pass
