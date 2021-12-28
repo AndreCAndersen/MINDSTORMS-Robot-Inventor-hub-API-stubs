@@ -63,7 +63,20 @@ class Motor:
         """
         assert -100 <= speed <= 100
 
-    def stop(self, *args, **kwargs):
+    def stop(self):
+        """Stops the motor. What the motor does after it stops depends on the action sets in `set_stop_action()`.
+
+        Example:
+            from mindstorms import MSHub, Motor
+
+            hub = MSHub()
+            motor = Motor('A')
+
+            motor.start()
+            # Press on the Hub's left button when you want the motor to stop.
+            hub.left_button.wait_until_pressed()
+            motor.stop()
+        """
         pass
 
     def run_for_degrees(self, degrees: int, speed: Optional[int] = None):
@@ -118,7 +131,23 @@ class Motor:
     def get_position(self, *args, **kwargs):
         pass
 
-    def get_speed(self, *args, **kwargs):
+    def get_speed(self) -> int:
+        """Returns the actual speed of the motor.
+
+        Example:
+
+            from mindstorms import MSHub, Motor
+
+            hub = MSHub()
+            motor_a = Motor('A')
+
+            motor_a.start()
+            hub.light_matrix.write('Speed =')
+            hub.light_matrix.write(motor_a.get_speed())
+            motor_a.stop()
+
+        :return: The motor's current speed.
+        """
         pass
 
     def get_degrees_counted(self, *args, **kwargs):
@@ -206,8 +235,38 @@ class Motor:
         """
         assert -100 <= power <= 100
 
-    def was_interrupted(self, *args, **kwargs):
+    def was_interrupted(self) -> bool:
+        """Checks if the last motor command was interrupted.
+
+        Example
+
+            from mindstorms import Motor
+
+            motor = Motor('A')
+
+            motor.run_for_rotations(2)
+            if motor.was_interrupted():
+            # The motor did not complete two rotations.
+            print('interrupted')
+        :return: True if the last motor command was interrupted, otherwise false.
+        """
         pass
 
-    def was_stalled(self, *args, **kwargs):
+    def was_stalled(self) -> bool:
+        """Checks if the motor was stalled.
+
+        Example
+            from mindstorms import MSHub, Motor
+
+            hub = MSHub()
+            motor_a = Motor('A')
+
+            motor_a.set_stall_detection(True)
+            motor_a.run_for_rotations(2)
+            if motor_a.was_stalled():
+            # The motor did not complete two rotations.
+            hub.light_matrix.write('stalled')
+
+        :return: True if the motor has stalled during its last command, otherwise false.
+        """
         pass
