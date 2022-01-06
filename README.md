@@ -16,6 +16,8 @@ I claim no rights to any of the documentation or API, of which all are probably 
 
 # Process
 
+# Extract File Structure 
+
 Originally I planned on using [robot-inventor-tools](https://github.com/ckumpe/robot-inventor-tools)
 and simply sniff the packets going through. However, I was running on Windows and couldn't get it 
 working properly.
@@ -94,35 +96,21 @@ with open('packet_data.json', 'rt') as file:
         print(message)
 ```
 
-* Create stub files using file part of the data using this script:
+* Create stub files using file part of the data using this script: `build_src_files.py`
 
-```python
-import os
+## Extract Documentation
 
-files = """
-file      /boot.py
-file      /bt-lk1.dat
-file      /bt-lk2.dat
-file      /main.py
-directory /util
-directory /util/adjust_motor_offset
-directory /util/adjust_motor_offset/lpf2
-file      /util/adjust_motor_offset/lpf2/__init__.mpy
-file      /util/adjust_motor_offset/lpf2/lpf2_logging.mpy
-...
-"""
-
-for file_line in files.strip().split('\n'):
-    file_path = file_line[len('directory') + 2:]
-    if (file_line.startswith('file') and (file_path.endswith('.mpy') or file_path.endswith('.py'))):
-        if file_path.endswith('.mpy'):
-            file_path = file_path[:-len('.mpy')] + '.py'
-        print('FILE', file_path)
-        with open('src/' + file_path, 'wt') as file:
-            file.write('')
-    elif file_line.startswith('directory'):
-        print('DIR', file_path)
-        os.makedirs('src/' + file_path)
-```
-
-* Next manually populate the various modules with appropriate stubs.
+* Use [Search Everything](https://www.voidtools.com/) to find Lego Mindstorms executable.
+  * Found `MINDSTORMS-win-10.3.0-latest.289689-0.0.0.4015.exe`
+* Installing [HxD](https://mh-nexus.de/en/hxd/) searching for a long string from the documentation, 
+  "Python is an intuitive text-based coding language".
+  * Found it stored as a json file.
+* Installing the [dotPeek](https://www.jetbrains.com/decompiler) decompiler, opening the executable.
+  * Found files `LEGO MINDSTORMS (10.3.0.0, x64)/Resources/Com.Lego.Flipper.variant.{GUID}`.
+* Used the "Export to project" functionality.
+* Uses [Sublime Text 3](https://www.sublimetext.com/3) and searched for long string from the documentation, 
+  "Python is an intuitive text-based coding language".
+  * Found it in `variant.5fd0c5fe69ba4ac093c0ca6e4b14d972`
+* Used a formatting tool to get readable JSON.
+* Manually extracted the english python documentation from the json file.
+* Write the following parsing script to pre-render JSON docs: `build_docs.py`
