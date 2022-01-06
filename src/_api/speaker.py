@@ -19,7 +19,7 @@ class Speaker:
         number of seconds has elapsed.Plays a beep on the Hub's speaker at the specified note. Your program will not
         continue until the specified number of seconds has elapsed.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -41,7 +41,7 @@ class Speaker:
 
     def stop(self):
         """Stops any sound that is playing on the Hub's Speaker.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -55,7 +55,7 @@ class Speaker:
 
     def get_volume(self):
         """Returns the value of the hub's Speaker volume.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -68,7 +68,7 @@ class Speaker:
     def set_volume(self, volume: int = 100):
         """Sets the Hub's Speaker volume. Not your device volumeSets the Hub's Speaker volume. Not your device volume
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -86,7 +86,7 @@ class Speaker:
         or another beep is played on the Speaker.Starts playing a beep on the Hub's Speaker at the specified note. The
         beep will play until stop() is called or another beep is played on the Speaker.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -108,7 +108,7 @@ class Speaker:
         The program will not continue until the sound has finished playing.Plays a sound from the hub speaker.
         The program will not continue until the sound has finished playing.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -138,7 +138,7 @@ class Speaker:
 
         The program will not wait for the sound to finish playing before proceeding to the next command.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 

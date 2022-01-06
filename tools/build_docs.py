@@ -88,7 +88,7 @@ class DocsBuilder:
             description = description.strip()
         if code_examples:
             code = self.get_only_code(code_examples)
-            code = "        Example:\n\n            " + code.replace('\n', '\n            ').rstrip() + '\n'
+            code = "        Examples:\n\n            " + code.replace('\n', '\n            ').rstrip() + '\n'
         else:
             code = ""
         if docs:

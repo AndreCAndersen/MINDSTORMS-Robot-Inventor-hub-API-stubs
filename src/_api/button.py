@@ -6,7 +6,7 @@ class Button:
 
     def wait_until_pressed(self):
         """Waits until the button is pressed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -22,7 +22,7 @@ class Button:
 
     def wait_until_released(self):
         """Waits until the button is released.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -38,7 +38,7 @@ class Button:
 
     def was_pressed(self):
         """Checks if the button was pressed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import wait_for_seconds
@@ -55,7 +55,7 @@ class Button:
 
     def is_pressed(self):
         """Checks if the button is pressed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -69,7 +69,7 @@ class Button:
 
     def is_released(self):
         """Checks if the button is released.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 

@@ -52,7 +52,7 @@ class MotorPair:
         """Starts both motors simultaneously to move a Driving Base. The motor will keep moving at the specified
         speed until you give them another command or when your program ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, MotorPair
 
@@ -90,7 +90,7 @@ class MotorPair:
     def move(self, amount: float, unit: Optional[str] = CM, steering: Optional[int] = 0, speed: Optional[int] = None):
         """Runs both motors simultaneously to move a Driving Base.
 
-        Example:
+        Examples:
 
             from mindstorms import MotorPair
 
@@ -122,7 +122,7 @@ class MotorPair:
     def get_default_speed(self) -> int:
         """Returns the default motor pair speed.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
 
@@ -158,7 +158,7 @@ class MotorPair:
     def move_tank(self, amount: float, unit: Optional[str] = CM, left_speed: Optional[int] = None, right_speed: Optional[int] = None):
         """ Move the Driving Base using differential (tank) steering. The speed of each motor can be controlled independently.
 
-        Example:
+        Examples:
 
             from mindstorms import MotorPair
 
@@ -189,7 +189,7 @@ class MotorPair:
         independently. The motors will keep moving at the specified speed until you give them another command or
         when your programs ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, MotorPair
 
@@ -213,7 +213,7 @@ class MotorPair:
         independently. The motors will keep moving at the specified speed until you give them another command or
         when your programs ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, MotorPair
 

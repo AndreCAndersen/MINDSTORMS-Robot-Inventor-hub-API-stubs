@@ -961,7 +961,7 @@ app.play_sound('Cat Meow 1')
     def play_sound(self, name: str, volume: int = 100):
         """Plays a sound from your device (i.e., smartphone, tablet or computer). The program will not continue until the specified sound has finished playing. If the specified sound name is not found, no sound is played and the program continue immediately to the next line.Plays a sound from your device (i.e., smartphone, tablet or computer). The program will not continue until the specified sound has finished playing. If the specified sound name is not found, no sound is played and the program continue immediately to the next line.
 
-        Example:
+        Examples:
 
             from mindstorms import App
             
@@ -992,7 +992,7 @@ app.start_sound('Cat Meow 1')
     def start_sound(self, name: str, volume: int = 100):
         """Starts playing a sound from your device (i.e., tablet or computer). The program will not wait for the sound to finish playing before proceeding to the next command. If a sound with the specified name is not found, nothing will happen.Starts playing a sound from your device (i.e., tablet or computer). The program will not wait for the sound to finish playing before proceeding to the next command. If a sound with the specified name is not found, nothing will happen.
 
-        Example:
+        Examples:
 
             from mindstorms import App
             
@@ -1024,7 +1024,7 @@ app.stop_sound()
 ```python
     def stop_sound(self):
         """Stops any sound that is playing in the App.
-        Example:
+        Examples:
 
             from mindstorms import App
             
@@ -1159,7 +1159,7 @@ while True:
 ```python
     def wait_until_pressed(self):
         """Waits until the button is pressed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1193,7 +1193,7 @@ while True:
 ```python
     def wait_until_released(self):
         """Waits until the button is released.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1228,7 +1228,7 @@ while True:
 ```python
     def was_pressed(self):
         """Checks if the button was pressed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import wait_for_seconds
@@ -1262,7 +1262,7 @@ if hub.left_button.is_pressed():
 ```python
     def is_pressed(self):
         """Checks if the button is pressed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1292,7 +1292,7 @@ if hub.left_button.is_released():
 ```python
     def is_released(self):
         """Checks if the button is released.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1325,7 +1325,7 @@ hub.status_light.on('blue')
     def on(self, color: str = 'white'):
         """Sets the color of the status light.Sets the color of the status light.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1353,7 +1353,7 @@ hub.status_light.off()
 ```python
     def off(self):
         """Turns off the light.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1384,7 +1384,7 @@ hub.light_matrix.set_pixel(1, 4, 90)
     def set_pixel(self, x: int, y: int, brightness: int = 100):
         """Sets the brightness of one pixel (one of the 25 LEDs) on the Light Matrix.Sets the brightness of one pixel (one of the 25 LEDs) on the Light Matrix.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1420,7 +1420,7 @@ hub.light_matrix.show_image('ASLEEP')
     def show_image(self, image: str, brightness: int = 100):
         """Shows an image on the Light Matrix.Shows an image on the Light Matrix.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import wait_for_seconds
@@ -1456,7 +1456,7 @@ hub.light_matrix.write('1')
     def write(self, text: str):
         """Displays text on the Light Matrix, one letter at a time, scrolling from right to left. The program will not continue until all of the specified text have been displayed.Displays text on the Light Matrix, one letter at a time, scrolling from right to left. The program will not continue until all of the specified text have been displayed.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1489,7 +1489,7 @@ hub.light_matrix.off()
 ```python
     def off(self):
         """Turns off all the pixels (LEDs) of the Light Matrix.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import wait_for_seconds
@@ -1520,7 +1520,7 @@ hub.light_matrix.show(pixels)
     def show(self, pixels: str):
         """Show an array of pixels on the light matrix.Show an array of pixels on the light matrix.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1564,7 +1564,7 @@ hub.light_matrix.play_animation(anim_countdown, 10, 'fade out', True)
         
         The program will not continue until the animation has finished playing.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1620,7 +1620,7 @@ hub.light_matrix.start_animation(anim_countdown, 10, False, 'fade out', True)
         
         The program will not wait for the animation to finish playing before proceeding to the next command.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1666,7 +1666,7 @@ hub.light_matrix.write('MINDSTORMS')
     def set_orientation(self, orientation: str = 'upright'):
         """Sets the orientation of the light matrix.Sets the orientation of the light matrix.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1699,7 +1699,7 @@ hub.light_matrix.write('MINDSTORMS')
     def rotate(self, direction: str = 'clockwise'):
         """Rotates the light matrix to the select directionRotates the light matrix to the select direction
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1732,7 +1732,7 @@ print(orientation)
 ```python
     def get_orientation(self):
         """Gets the orientation of the light matrix.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1769,7 +1769,7 @@ hub.speaker.beep(123, 0.5, 100)
     def beep(self, note: int = 60 (middle C note), seconds: float = 0.2, volume: int):
         """Plays a beep on the Hub's speaker at the specified note. Your program will not continue until the specified number of seconds has elapsed.Plays a beep on the Hub's speaker at the specified note. Your program will not continue until the specified number of seconds has elapsed.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1808,7 +1808,7 @@ hub.speaker.stop()
     def start_beep(self, note: int = 60 (middle C note), volume: int):
         """Starts playing a beep on the Hub's Speaker at the specified note. The beep will play until stop() is called or another beep is played on the Speaker.Starts playing a beep on the Hub's Speaker at the specified note. The beep will play until stop() is called or another beep is played on the Speaker.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1843,7 +1843,7 @@ hub.speaker.stop()
 ```python
     def stop(self):
         """Stops any sound that is playing on the Hub's Speaker.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1876,7 +1876,7 @@ hub.speaker.play_sound('Damage')
         The program will not continue until the sound has finished playing.Plays a sound from the hub speaker.
         The program will not continue until the sound has finished playing.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1915,7 +1915,7 @@ hub.speaker.play_sound('Damage')
         
         The program will not wait for the sound to finish playing before proceeding to the next command.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1948,7 +1948,7 @@ hub.speaker.set_volume(hub.speaker.get_volume() + 10)
 ```python
     def get_volume(self):
         """Returns the value of the hub's Speaker volume.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -1977,7 +1977,7 @@ hub.speaker.set_volume(50)
     def set_volume(self, volume: int = 100):
         """Sets the Hub's Speaker volume. Not your device volumeSets the Hub's Speaker volume. Not your device volume
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2014,7 +2014,7 @@ if hub.motion_sensor.was_gesture('shaken'):
     def was_gesture(self, gesture: str):
         """Checks if the specified gesture has been detected by the Hub's Motion Sensor.Checks if the specified gesture has been detected by the Hub's Motion Sensor.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import wait_for_seconds
@@ -2048,7 +2048,7 @@ hub.light_matrix.write(new_gesture)
 ```python
     def wait_for_new_gesture(self):
         """Waits until a new gesture is detected.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2078,7 +2078,7 @@ hub.light_matrix.write(new_orientation)
 ```python
     def wait_for_new_orientation(self):
         """Waits until the Hub’s orientation changes.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2109,7 +2109,7 @@ hub.light_matrix.write(orientation)
 ```python
     def get_orientation(self):
         """Returns the Hub's current orientation.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2140,7 +2140,7 @@ hub.light_matrix.write(gesture)
 ```python
     def get_gesture(self):
         """Returns the most recently detected gesture.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2173,7 +2173,7 @@ while True:
 ```python
     def get_pitch_angle(self):
         """Returns the Hub’s Pitch angle.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2207,7 +2207,7 @@ while True:
 ```python
     def get_roll_angle(self):
         """Returns the Hub’s Roll angle.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2242,7 +2242,7 @@ while True:
 ```python
     def get_yaw_angle(self):
         """Returns the Hub’s Yaw angle.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2280,7 +2280,7 @@ while True:
 ```python
     def reset_yaw_angle(self):
         """Sets the Yaw angle to 0.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             
@@ -2327,7 +2327,7 @@ motor_a.run_to_position(0)
     def run_to_position(self, degrees: int, direction: str = 'shortest path', speed: int = None):
         """Runs the motor to an absolute position.Runs the motor to an absolute position.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             
@@ -2370,7 +2370,7 @@ motor_a.run_to_degrees_counted(0)
     def run_to_degrees_counted(self, degrees: int, speed: int = None):
         """Runs the motor to a relative position of degrees counted. You can set the degrees count by using `set_degrees_counted()`.Runs the motor to a relative position of degrees counted. You can set the degrees count by using `set_degrees_counted()`.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             from mindstorms.control import wait_for_seconds
@@ -2411,7 +2411,7 @@ motor_a.run_for_degrees(360)
     def run_for_degrees(self, degrees: int, speed: int):
         """Runs the motor for a specified number of degrees.Runs the motor for a specified number of degrees.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             
@@ -2448,7 +2448,7 @@ motor_a.run_for_rotations(-0.25, 10)
     def run_for_rotations(self, rotations: float, speed: int = None):
         """Runs the motor for a specified number of rotations.Runs the motor for a specified number of rotations.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             
@@ -2482,7 +2482,7 @@ motor_a.run_for_seconds(3, -30)
     def run_for_seconds(self, seconds: float, speed: int):
         """Runs the motor for a specified number of seconds.Runs the motor for a specified number of seconds.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             
@@ -2518,7 +2518,7 @@ motor_a.stop()
     def start(self, speed: int = None):
         """Starts running the motor at the specified speed. The motor will keep on running until you give it another motor command or your program ends.Starts running the motor at the specified speed. The motor will keep on running until you give it another motor command or your program ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -2555,7 +2555,7 @@ motor_a.stop()
     def start_at_power(self, power: int):
         """Starts running the motor at the specified power level. The motor will keep on running until you give it another motor command or your program ends.Starts running the motor at the specified power level. The motor will keep on running until you give it another motor command or your program ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -2593,7 +2593,7 @@ motor.stop()
     def stop(self):
         """Stops the motor.
         What the motor does after it stops depends on the action sets in `set_stop_action()`.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -2629,7 +2629,7 @@ motor_a.stop()
 ```python
     def get_speed(self):
         """Returns the actual speed of the motor.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -2663,7 +2663,7 @@ motor_a.stop()
 ```python
     def get_position(self):
         """Returns the actual absolute position of the motor.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -2699,7 +2699,7 @@ motor_a.stop()
     def get_degrees_counted(self):
         """Returns the motor's relative position of degrees counted.
         You can set the degrees count by using set_degrees_counted().
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -2733,7 +2733,7 @@ hub.light_matrix.write(motor_a.get_default_speed())
 ```python
     def get_default_speed(self):
         """Returns the default motor speed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -2768,7 +2768,7 @@ if motor.was_interrupted():
 ```python
     def was_interrupted(self):
         """Checks if the last motor command was interrupted.
-        Example:
+        Examples:
 
             from mindstorms import Motor
             
@@ -2802,7 +2802,7 @@ if motor_a.was_stalled():
 ```python
     def was_stalled(self):
         """Checks if the motor was stalled.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -2861,7 +2861,7 @@ motor_a.stop()
         This is the default speed value used by the other motor functions when you do not specify a speed value. Setting the default speed does not affect the actual motor speed. This function should be used before another function that runs motors.Sets the default motor speed.
         This is the default speed value used by the other motor functions when you do not specify a speed value. Setting the default speed does not affect the actual motor speed. This function should be used before another function that runs motors.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             from mindstorms.control import wait_for_seconds
@@ -2911,7 +2911,7 @@ motor_a.run_for_seconds(1, 100)
         Setting the default stop action does not affect the actual motor stop action. This functions should be used before another functions that run or stop motors.Sets the default stop action the motor performs when it stops running.
         Setting the default stop action does not affect the actual motor stop action. This functions should be used before another functions that run or stop motors.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             
@@ -2950,7 +2950,7 @@ motor.run_for_rotations(2)
     def set_stall_detection(self, stop_when_stalled: bool = True):
         """Turns stall detection on or off. Stall detection senses when a motor has been blocked and can’t move. If stall detection has been enabled and a motor is blocked, the motor will be powered off after two seconds and the current motor command will be interrupted. If stall detection has been disabled, the motor will keep trying to run and programs will "get stuck" until the motor is no longer blocked. Stall detection is enabled by default.Turns stall detection on or off. Stall detection senses when a motor has been blocked and can’t move. If stall detection has been enabled and a motor is blocked, the motor will be powered off after two seconds and the current motor command will be interrupted. If stall detection has been disabled, the motor will keep trying to run and programs will "get stuck" until the motor is no longer blocked. Stall detection is enabled by default.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             
@@ -2996,7 +2996,7 @@ motor_pair.move(3, 'seconds', steering=-100, 100)
     def move(self, amount: float, unit: str = 'cm', steering: int = 0, speed: int = None):
         """Runs both motors simultaneously to move a Driving Base.Runs both motors simultaneously to move a Driving Base.
 
-        Example:
+        Examples:
 
             from mindstorms import MotorPair
             
@@ -3038,7 +3038,7 @@ motor_pair.stop()
         The motors will keep moving at the specified speed until you give them another command or when your programs ends.Starts both motors simultaneously to move a Driving Base.
         The motors will keep moving at the specified speed until you give them another command or when your programs ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, MotorPair
             
@@ -3074,7 +3074,7 @@ motor_pair.stop()
 ```python
     def stop(self):
         """Stops both motors simultaneously, which will stop a Driving Base. What the motors do after they stop depends on the action sets in set_stop_action().
-        Example:
+        Examples:
 
             from mindstorms import MSHub, MotorPair
             
@@ -3103,7 +3103,7 @@ motor_pair.move_tank(10, 'cm', 25, 75)
     def move_tank(self, amount: float, unit: str = 'cm', left_speed: int = None, right_speed: int = None):
         """Moves the Driving Base using differential (tank) steering. The speed of each motor can be controlled independently.Moves the Driving Base using differential (tank) steering. The speed of each motor can be controlled independently.
 
-        Example:
+        Examples:
 
             from mindstorms import MotorPair
             
@@ -3139,7 +3139,7 @@ motor_pair.stop()
     def start_tank(self, left_speed: int, right_speed: int):
         """Starts moving a Driving Base using differential (tank) steering. The speed of each motor can be controlled independently. The motors will keep moving at the specified speed until you give them another command or when your programs ends.Starts moving a Driving Base using differential (tank) steering. The speed of each motor can be controlled independently. The motors will keep moving at the specified speed until you give them another command or when your programs ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, MotorPair
             
@@ -3176,7 +3176,7 @@ while True:
     def start_at_power(self, power: int, steering: int = 0):
         """Starts moving the Driving Base without speed control. This is useful when using your own control algorithm (e.g. a line-follower). The motors will keep moving at the specified power until you give them another command or when your programs ends.Starts moving the Driving Base without speed control. This is useful when using your own control algorithm (e.g. a line-follower). The motors will keep moving at the specified power until you give them another command or when your programs ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MotorPair, ColorSensor
             
@@ -3217,7 +3217,7 @@ motor_pair.stop()
         This is useful when using your own control algorithm (e.g., a line-follower). The motors will keep moving at the specified power until you give them another command or when your programs ends.Starts moving the Driving Base using differential (tank) steering without speed control.
         This is useful when using your own control algorithm (e.g., a line-follower). The motors will keep moving at the specified power until you give them another command or when your programs ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, MotorPair
             
@@ -3257,7 +3257,7 @@ hub.light_matrix.write(motor_pair_ba.get_default_speed())
 ```python
     def get_default_speed(self):
         """Returns the default motor pair speed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
             
@@ -3295,7 +3295,7 @@ motor_pair.move(2, 'cm')
         Setting the default speed does not affect the actual distance ratio. This function should be used before another function that runs motors.Sets the distance ratio that a Driving Base travels when both motors run simultaneously one full rotation.
         Setting the default speed does not affect the actual distance ratio. This function should be used before another function that runs motors.
 
-        Example:
+        Examples:
 
             from mindstorms import MotorPair
             import math
@@ -3339,7 +3339,7 @@ motor_pair.stop()
         this is the default speed value used by the other motor pair functions when you do not specify a speed value. Setting the default speed does not affect the actual motors speed. This function should be used before another function that runs motors.Sets the default motor pair speed.
         this is the default speed value used by the other motor pair functions when you do not specify a speed value. Setting the default speed does not affect the actual motors speed. This function should be used before another function that runs motors.
 
-        Example:
+        Examples:
 
             from mindstorms import MotorPair
             from mindstorms.control import wait_for_seconds
@@ -3388,7 +3388,7 @@ motor_pair.move(1, 'seconds', 0, 100)
         Setting the default stop action does not affect the actual motor pair stop action. This function should be used before another function that run or stop motor pair.Sets the default stop action the motor pair performs when motors stop running.
         Setting the default stop action does not affect the actual motor pair stop action. This function should be used before another function that run or stop motor pair.
 
-        Example:
+        Examples:
 
             rom mindstorms import MotorPair
             
@@ -3446,7 +3446,7 @@ else :
 ```python
     def get_color(self):
         """Returns the color the color sensor sees.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, ColorSensor
             from mindstorms.operator import not_equal_to
@@ -3509,7 +3509,7 @@ hub.light_matrix.write(rgb_intensity[3])
 ```python
     def get_rgb_intensity(self):
         """Returns the intensity of the red, green and blue color and the overall color intensity.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, ColorSensor
             from mindstorms.control import wait_for_seconds
@@ -3577,7 +3577,7 @@ color_sensor.wait_until_color('blue')
     def wait_until_color(self, color: str):
         """Waits until the Color Sensor detects the specified color.Waits until the Color Sensor detects the specified color.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             
@@ -3613,7 +3613,7 @@ while True:
 ```python
     def wait_for_new_color(self):
         """Waits until the Color Sensor detects a new color. The first time this method is called, it immediately returns the detected color. After that, it waits until the Color Sensor detects a color that’s different from the color that was detected the last time this method was used.
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             
@@ -3651,7 +3651,7 @@ color_sensor.light_up_all(10)
     def light_up_all(self, brightness: int = 100):
         """Lights up all of the lights on the Color Sensor at the specified brightness. The Color Sensor changes mode to light up, this can affect your program in unexpected ways. For example, the Color Sensor can't read colors when it's in light up mode.Lights up all of the lights on the Color Sensor at the specified brightness. The Color Sensor changes mode to light up, this can affect your program in unexpected ways. For example, the Color Sensor can't read colors when it's in light up mode.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             
@@ -3685,7 +3685,7 @@ color_sensor.light_up(0, 100, 0)
         The Color Sensor changes mode to light up, this can affect your program in unexpected ways. For example, the Color Sensor can't read colors when it's in light up mode.Sets the brightness of each individual lights on the Color Sensor.
         The Color Sensor changes mode to light up, this can affect your program in unexpected ways. For example, the Color Sensor can't read colors when it's in light up mode.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             
@@ -3735,7 +3735,7 @@ print('cm:', dist_cm, 'inches:', dist_inches)
     def get_distance_cm(self, short_range: bool = False):
         """Returns the measured distance in centimeters.Returns the measured distance in centimeters.
 
-        Example:
+        Examples:
 
             from mindstorms import DistanceSensor
             
@@ -3774,7 +3774,7 @@ print('cm:', dist_cm, 'inches:', dist_inches)
     def get_distance_inches(self, short_range: bool = False):
         """Returns the measured distance in inches.Returns the measured distance in inches.
 
-        Example:
+        Examples:
 
             from mindstorms import DistanceSensor
             
@@ -3827,7 +3827,7 @@ while True:
     def wait_for_distance_farther_than(self, distance: float, unit: str = 'cm', short_range: bool = False):
         """Waits until the measured distance is greater than the specified distance.Waits until the measured distance is greater than the specified distance.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, DistanceSensor
             
@@ -3869,7 +3869,7 @@ while True:
     def wait_for_distance_closer_than(self, distance: float, unit: str = 'cm', short_range: bool = False):
         """Waits until the measured distance is less than the specified distance.Waits until the measured distance is less than the specified distance.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, DistanceSensor
             
@@ -3910,7 +3910,7 @@ distance_sensor.light_up_all(0)
     def light_up_all(self, brightness: int = 100):
         """Lights up all of the lights on the Distance Sensor at the specified brightness.Lights up all of the lights on the Distance Sensor at the specified brightness.
 
-        Example:
+        Examples:
 
             from mindstorms import DistanceSensor
             
@@ -3942,7 +3942,7 @@ distance_sensor.light_up(100, 20, 0, 0)
     def light_up(self, right_top: int = 100, left_top: int = 100, right_bottom: int = 100, left_bottom: int = 100):
         """Light up each individual lights of the Distance Sensor at the specified brightness.Light up each individual lights of the Distance Sensor at the specified brightness.
 
-        Example:
+        Examples:
 
             from mindstorms import DistanceSensor
             
@@ -3991,7 +3991,7 @@ while True:
 ```python
     def is_pressed(self):
         """Checks if the Force Sensor is pressed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, ForceSensor
             
@@ -4027,7 +4027,7 @@ print('N:', newtons, '=', percentage, '%')
 ```python
     def get_force_newton(self):
         """Returns the measured force in newtons.
-        Example:
+        Examples:
 
             from mindstorms import ForceSensor
             
@@ -4064,7 +4064,7 @@ print('N:', newtons, '=', percentage, '%')
 ```python
     def get_force_percentage(self):
         """Returns the measured force as a percentage of the Force sensor detection range.
-        Example:
+        Examples:
 
             from mindstorms import ForceSensor
             
@@ -4102,7 +4102,7 @@ while True:
 ```python
     def wait_until_pressed(self):
         """Waits until the Force Sensor is pressed.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, ForceSensor
             
@@ -4138,7 +4138,7 @@ while True:
 ```python
     def wait_until_released(self):
         """Waits until the Force Sensor is released.
-        Example:
+        Examples:
 
             from mindstorms import MSHub, ForceSensor
             
@@ -4648,7 +4648,7 @@ wait_until(color_sensor.get_reflected_light, greater_than, 50)
     def greater_than(self, a: Any, b: Any):
         """Checks if the specified value a is greater than the specified value b. This is the same as a > b.Checks if the specified value a is greater than the specified value b. This is the same as a > b.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             from mindstorms.control import wait_until
@@ -4682,7 +4682,7 @@ wait_until(color_sensor.get_reflected_light, greater_than_or_equal_to, 50)
     def greater_than_or_equal_to(self, a: Any, b: Any):
         """Checks if the specified value a is greater than or equal to the specified value b. This is the same as a >= b.Checks if the specified value a is greater than or equal to the specified value b. This is the same as a >= b.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             from mindstorms.control import wait_until
@@ -4716,7 +4716,7 @@ wait_until(color_sensor.get_reflected_light, less_than, 50)
     def less_than(self, a: Any, b: Any):
         """Checks if the specified value a is less than the specified value b. This is the same as a < b.Checks if the specified value a is less than the specified value b. This is the same as a < b.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             from mindstorms.control import wait_until
@@ -4750,7 +4750,7 @@ wait_until(color_sensor.get_reflected_light, less_than_or_equal_to, 50)
     def less_than_or_equal_to(self, a: Any, b: Any):
         """Checks if the specified value a is less than or equal to the specified value b. This is the same as a <= b.Checks if the specified value a is less than or equal to the specified value b. This is the same as a <= b.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             from mindstorms.control import wait_until
@@ -4784,7 +4784,7 @@ wait_until(color_sensor.get_color, equal_to, 'red')
     def equal_to(self, a: Any, b: Any):
         """Checks if the specified value a is equal to the specified value b. This is the same as a == b.Checks if the specified value a is equal to the specified value b. This is the same as a == b.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             from mindstorms.control import wait_until
@@ -4818,7 +4818,7 @@ wait_until(color_sensor.get_color, not_equal_to, None)
     def not_equal_to(self, a: Any, b: Any):
         """Checks if the specified value a is not equal to the specified value b. This is the same as a != b.Checks if the specified value a is not equal to the specified value b. This is the same as a != b.
 
-        Example:
+        Examples:
 
             from mindstorms import ColorSensor
             from mindstorms.control import wait_until
@@ -4856,7 +4856,7 @@ hub.speaker.beep(60, 0.2)
     def wait_for_seconds(self, seconds: float):
         """Waits for a specified number of seconds before continuing the program.Waits for a specified number of seconds before continuing the program.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import wait_for_seconds
@@ -4893,7 +4893,7 @@ hub.status_light.on('red')
     def wait_until(self, get_value_function: Callable, operator_function: Callable, target_value: Any):
         """Waits until the specified condition is True before continuing with the program.Waits until the specified condition is True before continuing with the program.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, ColorSensor
             from mindstorms.control import wait_until
@@ -4947,7 +4947,7 @@ hub.light_matrix.write(timer.now())
 ```python
     def reset(self):
         """Resets the Timer to 0.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import Timer
@@ -4988,7 +4988,7 @@ hub.light_matrix.write(timer.now())
 ```python
     def now(self):
         """Returns the timer count in seconds.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import Timer

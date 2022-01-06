@@ -50,7 +50,7 @@ class Motor:
         """Starts running the motor at the specified speed. The motor will keep on running until you give it another
         motor command or your program ends.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
 
@@ -69,7 +69,7 @@ class Motor:
     def stop(self):
         """Stops the motor. What the motor does after it stops depends on the action sets in `set_stop_action()`.
 
-        Example:
+        Examples:
             from mindstorms import MSHub, Motor
 
             hub = MSHub()
@@ -107,7 +107,7 @@ class Motor:
     def run_to_position(self, degrees: int, direction: str = 'shortest path', speed: int = None):
         """Runs the motor to an absolute position.Runs the motor to an absolute position.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
 
@@ -132,7 +132,7 @@ class Motor:
     def get_position(self) -> int:
         """Returns the actual absolute position of the motor.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
 
@@ -151,7 +151,7 @@ class Motor:
     def get_speed(self) -> int:
         """Returns the actual speed of the motor.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
 
@@ -171,7 +171,7 @@ class Motor:
         """Returns the motor's relative position of degrees counted. You can set the degrees counted by using
         `set_degrees_counted()`.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
 
@@ -197,7 +197,7 @@ class Motor:
     def get_default_speed(self) -> int:
         """Returns the default motor speed.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub, Motor
 
@@ -217,7 +217,7 @@ class Motor:
         you do not specify a speed value. Setting the default speed does not affect the actual motor speed.
         This function should be used before another function that runs motors.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
             from mindstorms.control import wait_for_seconds
@@ -244,7 +244,7 @@ class Motor:
         not affect the actual motor stop action. This function should be used before other functions that run or stop
         motors.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
 
@@ -271,7 +271,7 @@ class Motor:
         to run and prgorams will "get stuck" until the motor is no longer blocked. Stall detection is enabled by
         default.
 
-        Example:
+        Examples:
 
             from mindstorms import Motor
 

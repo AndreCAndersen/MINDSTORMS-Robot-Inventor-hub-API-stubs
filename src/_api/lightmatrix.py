@@ -23,7 +23,7 @@ class LightMatrix:
         """Sets the brightness of one pixel (one of the 25 LEDs) on the Light Matrix.Sets the brightness of one pixel
         (one of the 25 LEDs) on the Light Matrix.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -42,7 +42,7 @@ class LightMatrix:
     def show_image(self, image: str, brightness: int = 100):
         """Shows an image on the Light Matrix.Shows an image on the Light Matrix.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import wait_for_seconds
@@ -73,7 +73,7 @@ class LightMatrix:
         time, scrolling from right to left. The program will not continue until all of the specified text have been
         displayed.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -89,7 +89,7 @@ class LightMatrix:
 
     def off(self):
         """Turns off all the pixels (LEDs) of the Light Matrix.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
             from mindstorms.control import wait_for_seconds
@@ -105,7 +105,7 @@ class LightMatrix:
     def show(self, pixels: int):
         """Show an array of pixels on the light matrix.Show an array of pixels on the light matrix.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -125,7 +125,7 @@ class LightMatrix:
 
         The program will not continue until the animation has finished playing.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -163,7 +163,7 @@ class LightMatrix:
 
         The program will not wait for the animation to finish playing before proceeding to the next command.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -200,7 +200,7 @@ class LightMatrix:
     def set_orientation(self, orientation: str = 'upright'):
         """Sets the orientation of the light matrix.Sets the orientation of the light matrix.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -217,7 +217,7 @@ class LightMatrix:
     def rotate(self, direction: str = 'clockwise'):
         """Rotates the light matrix to the select directionRotates the light matrix to the select direction
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -234,7 +234,7 @@ class LightMatrix:
 
     def get_orientation(self):
         """Gets the orientation of the light matrix.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 

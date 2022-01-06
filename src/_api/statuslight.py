@@ -9,7 +9,7 @@ class StatusLight:
     def on(self, color: str = 'white'):
         """Sets the color of the status light.Sets the color of the status light.
 
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
@@ -24,7 +24,7 @@ class StatusLight:
 
     def off(self):
         """Turns off the light.
-        Example:
+        Examples:
 
             from mindstorms import MSHub
 
