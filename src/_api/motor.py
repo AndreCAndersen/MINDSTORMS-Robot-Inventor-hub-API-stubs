@@ -32,6 +32,9 @@ def clamp_power(*args, **kwargs):
 
 
 class Motor:
+    """This is the Single Motor Library, you can use the following functions to rotate your motors or move them to a
+    specific position. To use the motors, you must first initialize them.
+    """
 
     BRAKE: str = 'brake'
     HOLD: str = 'hold'
@@ -101,10 +104,10 @@ class Motor:
         if speed is not None:
             assert 0 <= speed <= 100
 
-    def run_to_position(self, degrees: int, direction: Optional[str] = 'shortest path', speed: Optional[int] = None) -> None:
-        """Runs the motor to an absolute position.
+    def run_to_position(self, degrees: int, direction: str = 'shortest path', speed: int = None):
+        """Runs the motor to an absolute position.Runs the motor to an absolute position.
 
-        Example
+        Example:
 
             from mindstorms import Motor
 
@@ -113,20 +116,18 @@ class Motor:
             # Run the motor to position 0 degrees, aligning the markers.
 
             motor_a.run_to_position(175, 'clockwise', 75)
-            # Comment2
+            # Run the motor to position 0 degrees, aligning the markers.
             motor_a.run_to_position(0)
 
         :param degrees: The new desired position.
-        :param direction: The direction the motor should run. You can choose to rotate the motor in one direction
-        or the other, or let the motor decide which direction makes its rotation shorter by choosing `shortest path`
-        :param speed: The desired motor's speed. If no value is specified, the speed is set by `set_default_speed()` is used.
+        :param direction: The direction the motor should run. You can choose to rotate the motor in one direction or
+        the other, or let the motor decide which direction makes its rotation shorter by choosing 'shortest path'
+        :param speed: The desired motor's speed. If no value is specified, the speed set by `set_default_speed()` is
+        used.
         """
-        if degrees is not None:
-            assert 0 <= degrees <= 359
-        if direction is not None:
-            assert direction in ('shortest path', 'clockwise', 'counterclockwize')
-        if speed is not None:
-            assert 0 <= speed <= 100
+        assert 0 <= degrees <= 359
+        assert direction in ['shortest path', 'clockwise', 'counterclockwise']
+        assert 0 <= speed <= 100
 
     def get_position(self) -> int:
         """Returns the actual absolute position of the motor.
