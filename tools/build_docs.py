@@ -42,10 +42,19 @@ class DocsBuilder:
                             python_code_example['description'],
                             python_code_example['python_method_description_title'],
                             python_code_example['parameters'],
+                            python_code_example['code_example'],
                         )
                 if 'python_code_example' in subcontent:
                     for code_example in subcontent['python_code_example']['content']:
                         self.write_code(code_example)
+
+    def get_only_code(self, code_examples):
+        code = ''
+        for code_example in code_examples:
+            code += code_example['code']
+            for idx, comment in enumerate(code_example['comments']):
+                code = code.replace('Comment{}'.format(idx + 1), comment['comment'])
+        return code
 
     def write_code(self, code_example):
         self.write("### " + code_example['title'].split('-')[-1])
@@ -58,7 +67,8 @@ class DocsBuilder:
         self,
         description,
         title,
-        parameters
+        parameters,
+        code_examples
     ):
         docs = ''
         value_asserts = []
@@ -76,14 +86,19 @@ class DocsBuilder:
         if description:
             description = description.replace('\n', '\n        ')
             description = description.strip()
+        if code_examples:
+            code = self.get_only_code(code_examples)
+            code = "        Example:\n\n            " + code.replace('\n', '\n            ').rstrip() + '\n'
+        else:
+            code = ""
         if docs:
             if description:
                 description += description + '\n'
             docs = docs.replace('\n', '\n        ')
-            docs = f'"""{description}\n        {docs}"""'
+            docs = f'"""{description}\n{code}\n        {docs}"""'
             docs = "    " + docs.strip()
         else:
-            docs = f'    """{description}\n        """'
+            docs = f'    """{description}\n{code}        """'
         code_content = ''
         for var, val in value_asserts:
             if ' to ' in val:

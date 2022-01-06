@@ -961,6 +961,14 @@ app.play_sound('Cat Meow 1')
     def play_sound(self, name: str, volume: int = 100):
         """Plays a sound from your device (i.e., smartphone, tablet or computer). The program will not continue until the specified sound has finished playing. If the specified sound name is not found, no sound is played and the program continue immediately to the next line.Plays a sound from your device (i.e., smartphone, tablet or computer). The program will not continue until the specified sound has finished playing. If the specified sound name is not found, no sound is played and the program continue immediately to the next line.
 
+        Example:
+
+            from mindstorms import App
+            
+            app = App()
+            
+            app.play_sound('Cat Meow 1')
+
         :param name: The name of the sound to be played.
         :param volume: The volume at which the sound will be played.
         """
@@ -983,6 +991,14 @@ app.start_sound('Cat Meow 1')
 ```python
     def start_sound(self, name: str, volume: int = 100):
         """Starts playing a sound from your device (i.e., tablet or computer). The program will not wait for the sound to finish playing before proceeding to the next command. If a sound with the specified name is not found, nothing will happen.Starts playing a sound from your device (i.e., tablet or computer). The program will not wait for the sound to finish playing before proceeding to the next command. If a sound with the specified name is not found, nothing will happen.
+
+        Example:
+
+            from mindstorms import App
+            
+            app = App()
+            
+            app.start_sound('Cat Meow 1')
 
         :param name: The name of the sound to be played.
         :param volume: The volume at which the sound will be played
@@ -1008,6 +1024,15 @@ app.stop_sound()
 ```python
     def stop_sound(self):
         """Stops any sound that is playing in the App.
+        Example:
+
+            from mindstorms import App
+            
+            app = App()
+            
+            app.start_sound('Cat Meow 1')
+            wait_for_seconds(0.5)
+            app.stop_sound()
         """
         pass
 ```
@@ -1134,6 +1159,17 @@ while True:
 ```python
     def wait_until_pressed(self):
         """Waits until the button is pressed.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            # Beep every time the Left Button is pressed.
+            while True:
+                hub.left_button.wait_until_pressed()
+                hub.speaker.start_beep()
+                hub.left_button.wait_until_released()
+                hub.speaker.stop()
         """
         pass
 ```
@@ -1157,6 +1193,17 @@ while True:
 ```python
     def wait_until_released(self):
         """Waits until the button is released.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            # Beep every time the Left Button is pressed.
+            while True:
+                hub.left_button.wait_until_pressed()
+                hub.speaker.start_beep()
+                hub.left_button.wait_until_released()
+                hub.speaker.stop()
         """
         pass
 ```
@@ -1181,6 +1228,18 @@ while True:
 ```python
     def was_pressed(self):
         """Checks if the button was pressed.
+        Example:
+
+            from mindstorms import MSHub
+            from mindstorms.control import wait_for_seconds
+            
+            hub = MSHub()
+            
+            while True:
+                wait_for_seconds(3)
+                if hub.left_button.was_pressed():
+                    # Put your own code here
+                    hub.speaker.beep()
         """
         pass
 ```
@@ -1203,6 +1262,15 @@ if hub.left_button.is_pressed():
 ```python
     def is_pressed(self):
         """Checks if the button is pressed.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            if hub.left_button.is_pressed():
+                # Do something.
+                    hub.speaker.beep()
         """
         pass
 ```
@@ -1224,6 +1292,15 @@ if hub.left_button.is_released():
 ```python
     def is_released(self):
         """Checks if the button is released.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            if hub.left_button.is_released():
+               # Beep if left button is released
+               hub.speaker.beep()
         """
         pass
 ```
@@ -1248,6 +1325,14 @@ hub.status_light.on('blue')
     def on(self, color: str = 'white'):
         """Sets the color of the status light.Sets the color of the status light.
 
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.status_light.on('blue')
+
         :param color: Illuminates the Hub’s Status Light in the specified color.
         """
         assert color in ['azure', 'black', 'blue', 'cyan', 'green', 'orange', 'pink', 'red', 'violet', 'white', 'yellow']
@@ -1268,6 +1353,13 @@ hub.status_light.off()
 ```python
     def off(self):
         """Turns off the light.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.status_light.off()
         """
         pass
 ```
@@ -1291,6 +1383,14 @@ hub.light_matrix.set_pixel(1, 4, 90)
 ```python
     def set_pixel(self, x: int, y: int, brightness: int = 100):
         """Sets the brightness of one pixel (one of the 25 LEDs) on the Light Matrix.Sets the brightness of one pixel (one of the 25 LEDs) on the Light Matrix.
+
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.light_matrix.set_pixel(1, 4, 90)
 
         :param x: Pixel position of the Light Matrix 5 columns, counting from the left.
         :param y: Pixel position of the Light Matrix 5 rows, counting from the top.
@@ -1320,6 +1420,17 @@ hub.light_matrix.show_image('ASLEEP')
     def show_image(self, image: str, brightness: int = 100):
         """Shows an image on the Light Matrix.Shows an image on the Light Matrix.
 
+        Example:
+
+            from mindstorms import MSHub
+            from mindstorms.control import wait_for_seconds
+            
+            hub = MSHub()
+            
+            hub.light_matrix.show_image('HAPPY')
+            wait_for_seconds(5)
+            hub.light_matrix.show_image('ASLEEP')
+
         :param image: Name of the image.
         :param brightness: Brightness of the image in percent
         """
@@ -1345,6 +1456,16 @@ hub.light_matrix.write('1')
     def write(self, text: str):
         """Displays text on the Light Matrix, one letter at a time, scrolling from right to left. The program will not continue until all of the specified text have been displayed.Displays text on the Light Matrix, one letter at a time, scrolling from right to left. The program will not continue until all of the specified text have been displayed.
 
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.light_matrix.write('Hello!')
+            # Show the number "1" on the Light Matrix.
+            hub.light_matrix.write('1')
+
         :param text: Text to display. If a character is unknown, ? will be displayed instead.
         """
         pass
@@ -1368,6 +1489,16 @@ hub.light_matrix.off()
 ```python
     def off(self):
         """Turns off all the pixels (LEDs) of the Light Matrix.
+        Example:
+
+            from mindstorms import MSHub
+            from mindstorms.control import wait_for_seconds
+            
+            hub = MSHub()
+            
+            hub.light_matrix.show_image('TARGET')
+            wait_for_seconds(3)
+            hub.light_matrix.off()
         """
         pass
 ```
@@ -1388,6 +1519,15 @@ hub.light_matrix.show(pixels)
 ```python
     def show(self, pixels: str):
         """Show an array of pixels on the light matrix.Show an array of pixels on the light matrix.
+
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            pixels = '99999:77777:55555:33333:11111'
+            hub.light_matrix.show(pixels)
 
         :param pixels: Array of pixels to display on the light matrix.
         """
@@ -1423,6 +1563,22 @@ hub.light_matrix.play_animation(anim_countdown, 10, 'fade out', True)
         The program will not continue until the animation has finished playing.Plays an animation on the light matrix.
         
         The program will not continue until the animation has finished playing.
+
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            anim_countdown = [
+               '09990:09000:09990:00090:09990',
+               '09090:09090:09990:00090:00090',
+               '09990:00090:09990:00090:09990',
+               '09990:00090:09990:09000:09990',
+               '00900:09900:00900:00900:09990',
+               '99999:99999:99999:99999:99999'
+            ]
+            hub.light_matrix.play_animation(anim_countdown, 10, 'fade out', True)
 
         :param animation: The animation to be played. Animation should be composed of multiple strings separated by commas. Each string consists of 5 groups of 5 numbers from 0 to 9 separated by ':'. Each group of 5 numbers represents a line of pixels of the light matrix with the first number of the first group representing the first left pixel of the first top line and the value representing the brightness 0 being off and 9 being 100% brightness.
         :param fps: The speed at which the animation is played, i.e. animation frames displayed per second.
@@ -1464,6 +1620,22 @@ hub.light_matrix.start_animation(anim_countdown, 10, False, 'fade out', True)
         
         The program will not wait for the animation to finish playing before proceeding to the next command.
 
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            anim_countdown = [
+               '09990:09000:09990:00090:09990',
+               '09090:09090:09990:00090:00090',
+               '09990:00090:09990:00090:09990',
+               '09990:00090:09990:09000:09990',
+               '00900:09900:00900:00900:09990',
+               '99999:99999:99999:99999:99999'
+            ]
+            hub.light_matrix.start_animation(anim_countdown, 10, False, 'fade out', True)
+
         :param animation: The animation to be played. Animation should be composed of multiple strings separated by commas. Each string consists of 5 groups of 5 numbers from 0 to 9 separated by ':'. Each group of 5 numbers represents a line of pixels of the light matrix with the first number of the first group representing the first left pixel of the first top line and the value representing the brightness 0 being off and 9 being 100% brightness.
         :param fps: The speed at which the animation is played, i.e. animation frames displayed per second.
         :param loop: Whether or not the animation should loop.
@@ -1494,6 +1666,16 @@ hub.light_matrix.write('MINDSTORMS')
     def set_orientation(self, orientation: str = 'upright'):
         """Sets the orientation of the light matrix.Sets the orientation of the light matrix.
 
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.light_matrix.write('LEGO')
+            hub.light_matrix.set_orientation('upside down')
+            hub.light_matrix.write('MINDSTORMS')
+
         :param orientation: The orientation the light matrix will be oriented towards.
         """
         assert orientation in ['upright', 'left', 'upside down', 'right']
@@ -1516,6 +1698,16 @@ hub.light_matrix.write('MINDSTORMS')
 ```python
     def rotate(self, direction: str = 'clockwise'):
         """Rotates the light matrix to the select directionRotates the light matrix to the select direction
+
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.light_matrix.write('LEGO')
+            hub.light_matrix.rotate('counterclockwise')
+            hub.light_matrix.write('MINDSTORMS')
 
         :param direction: The direction set light matrix will be rotated. Rotating four times will put the light matrix in the same orientation it was before the rotations.
         """
@@ -1540,6 +1732,15 @@ print(orientation)
 ```python
     def get_orientation(self):
         """Gets the orientation of the light matrix.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.light_matrix.set_orientation("right")
+            orientation = hub.light_matrix.get_orientation()
+            print(orientation)
         """
         pass
 ```
@@ -1568,6 +1769,18 @@ hub.speaker.beep(123, 0.5, 100)
     def beep(self, note: int = 60 (middle C note), seconds: float = 0.2, volume: int):
         """Plays a beep on the Hub's speaker at the specified note. Your program will not continue until the specified number of seconds has elapsed.Plays a beep on the Hub's speaker at the specified note. Your program will not continue until the specified number of seconds has elapsed.
 
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            # beep beep beep!
+            
+            hub.speaker.beep(60, 0.5)
+            hub.speaker.beep(44, 0.5, 50)
+            hub.speaker.beep(123, 0.5, 100)
+
         :param note: The MIDI note number.
         :param seconds: The duration of the beep in seconds.
         :param volume: The volume at which the sound will be played. Type: integer or float (positive or negative number, including 0) Values: 0 to 100% or None Default: None (indicating that current volume is used)
@@ -1595,6 +1808,17 @@ hub.speaker.stop()
     def start_beep(self, note: int = 60 (middle C note), volume: int):
         """Starts playing a beep on the Hub's Speaker at the specified note. The beep will play until stop() is called or another beep is played on the Speaker.Starts playing a beep on the Hub's Speaker at the specified note. The beep will play until stop() is called or another beep is played on the Speaker.
 
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            #Beep high-pitched for 3 seconds 
+            hub.speaker.start_beep(123, 100)
+            wait_for_seconds(3)
+            hub.speaker.stop()
+
         :param note: The MIDI note number.
         :param volume: The volume at which the sound will be played.
         """
@@ -1619,6 +1843,15 @@ hub.speaker.stop()
 ```python
     def stop(self):
         """Stops any sound that is playing on the Hub's Speaker.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.speaker.start_beep()
+            # Put your own code here
+            hub.speaker.stop()
         """
         pass
 ```
@@ -1642,6 +1875,15 @@ hub.speaker.play_sound('Damage')
         """Plays a sound from the hub speaker.
         The program will not continue until the sound has finished playing.Plays a sound from the hub speaker.
         The program will not continue until the sound has finished playing.
+
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            # Play the 'Damage' sound and wait for it to finish
+            hub.speaker.play_sound('Damage')
 
         :param name: Name of the sound to play on Hub.
         :param volume: The volume at which the sound will be played.
@@ -1673,6 +1915,15 @@ hub.speaker.play_sound('Damage')
         
         The program will not wait for the sound to finish playing before proceeding to the next command.
 
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            # Play the 'Damage' sound and wait for it to finish
+            hub.speaker.play_sound('Damage')
+
         :param name: Name of the sound to play on Hub.
         :param volume: The volume at which the sound will be played.
         """
@@ -1697,6 +1948,13 @@ hub.speaker.set_volume(hub.speaker.get_volume() + 10)
 ```python
     def get_volume(self):
         """Returns the value of the hub's Speaker volume.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            # Increase the volume of the Hub speaker by 10%.
+            hub.speaker.set_volume(hub.speaker.get_volume() + 10)
         """
         pass
 ```
@@ -1718,6 +1976,14 @@ hub.speaker.set_volume(50)
 ```python
     def set_volume(self, volume: int = 100):
         """Sets the Hub's Speaker volume. Not your device volumeSets the Hub's Speaker volume. Not your device volume
+
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            # Set the Hub speaker volume to 50%.
+            hub.speaker.set_volume(50)
 
         :param volume: The new volume in percent. If the specified volume is out of range, the nearest volume (i.e., 0 or 100) will be used instead.
         """
@@ -1748,6 +2014,18 @@ if hub.motion_sensor.was_gesture('shaken'):
     def was_gesture(self, gesture: str):
         """Checks if the specified gesture has been detected by the Hub's Motion Sensor.Checks if the specified gesture has been detected by the Hub's Motion Sensor.
 
+        Example:
+
+            from mindstorms import MSHub
+            from mindstorms.control import wait_for_seconds
+            
+            hub = MSHub()
+            
+            wait_for_seconds(5)
+            if hub.motion_sensor.was_gesture('shaken'):
+                # The Hub has been shaken at least once within the last 5 seconds.
+                hub.speaker.beep()
+
         :param gesture: The name of the gesture.
         """
         assert gesture in ['shaken', 'tapped', 'doubletapped', 'falling']
@@ -1770,6 +2048,15 @@ hub.light_matrix.write(new_gesture)
 ```python
     def wait_for_new_gesture(self):
         """Waits until a new gesture is detected.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            new_gesture = hub.motion_sensor.wait_for_new_gesture()
+            # comment1
+            hub.light_matrix.write(new_gesture)
         """
         pass
 ```
@@ -1791,6 +2078,15 @@ hub.light_matrix.write(new_orientation)
 ```python
     def wait_for_new_orientation(self):
         """Waits until the Hub’s orientation changes.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            new_orientation = hub.motion_sensor.wait_for_new_orientation()
+            # Write the new orientation on the hub's Light Matrix
+            hub.light_matrix.write(new_orientation)
         """
         pass
 ```
@@ -1813,6 +2109,15 @@ hub.light_matrix.write(orientation)
 ```python
     def get_orientation(self):
         """Returns the Hub's current orientation.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            orientation = hub.motion_sensor.get_orientation()
+            # Write the orientation on the hub's Light Matrix
+            hub.light_matrix.write(orientation)
         """
         pass
 ```
@@ -1835,6 +2140,16 @@ hub.light_matrix.write(gesture)
 ```python
     def get_gesture(self):
         """Returns the most recently detected gesture.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            wait_for_seconds(5)
+            gesture = hub.motion_sensor.get_gesture()
+            # Write the most recently detected gesture on the hub's Light Matrix
+            hub.light_matrix.write(gesture)
         """
         pass
 ```
@@ -1858,6 +2173,17 @@ while True:
 ```python
     def get_pitch_angle(self):
         """Returns the Hub’s Pitch angle.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            while True:
+                # Rotate your hub around the Pitch axis to see what happen
+                pitch = hub.motion_sensor.get_pitch_angle()
+                hub.speaker.set_volume(abs(pitch))
+                hub.speaker.start_beep(70)
         """
         pass
 ```
@@ -1881,6 +2207,17 @@ while True:
 ```python
     def get_roll_angle(self):
         """Returns the Hub’s Roll angle.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            while True:
+                # Rotate your hub around the Roll axis to see what happen
+                roll = hub.motion_sensor.get_roll_angle()
+                hub.speaker.set_volume(abs(roll))
+                hub.speaker.start_beep(80)
         """
         pass
 ```
@@ -1905,6 +2242,18 @@ while True:
 ```python
     def get_yaw_angle(self):
         """Returns the Hub’s Yaw angle.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            hub.motion_sensor.reset_yaw_angle()
+            while True:
+                # Do something.
+                yaw = hub.motion_sensor.get_yaw_angle()
+                hub.speaker.set_volume(abs(yaw))
+                hub.speaker.start_beep(90)
         """
         pass
 ```
@@ -1931,6 +2280,17 @@ while True:
 ```python
     def reset_yaw_angle(self):
         """Sets the Yaw angle to 0.
+        Example:
+
+            from mindstorms import MSHub
+            
+            hub = MSHub()
+            
+            while True:
+                # Rotate your hub around the Yaw axis to see what happen
+                hub.motion_sensor.reset_yaw_angle()
+                angle = hub.motion_sensor.get_yaw_angle()
+                hub.ligth_matrix.write(angle)
         """
         pass
 ```
@@ -1967,6 +2327,18 @@ motor_a.run_to_position(0)
     def run_to_position(self, degrees: int, direction: str = 'shortest path', speed: int = None):
         """Runs the motor to an absolute position.Runs the motor to an absolute position.
 
+        Example:
+
+            from mindstorms import Motor
+            
+            motor_a = Motor('A')
+            
+            # Run the motor to position 0 degrees, aligning the markers.
+            
+            motor_a.run_to_position(175, 'clockwise', 75)
+            # Run the motor to position 0 degrees, aligning the markers.
+            motor_a.run_to_position(0)
+
         :param degrees: The new desired position.
         :param direction: The direction the motor should run. You can choose to rotate the motor in one direction or the other, or let the motor decide which direction makes its rotation shorter by choosing 'shortest path'
         :param speed: The desired motor's speed. If no value is specified, the speed set by `set_default_speed()` is used.
@@ -1998,6 +2370,20 @@ motor_a.run_to_degrees_counted(0)
     def run_to_degrees_counted(self, degrees: int, speed: int = None):
         """Runs the motor to a relative position of degrees counted. You can set the degrees count by using `set_degrees_counted()`.Runs the motor to a relative position of degrees counted. You can set the degrees count by using `set_degrees_counted()`.
 
+        Example:
+
+            from mindstorms import Motor
+            from mindstorms.control import wait_for_seconds
+            
+            motor_a = Motor('A')
+            
+            # Run the motor to 400 degrees counted at 50% speed.
+            motor_a.run_to_degrees_counted(400, 50)
+            # Run the motor to -600 degrees counted at maximum (100%) speed.
+            motor_a.run_to_degrees_counted(-600, 100)
+            # Comment 3
+            motor_a.run_to_degrees_counted(0)
+
         :param degrees: The new desired degrees counted position.
         :param speed: The desired motor's speed. If no value is specified, the speed set by set_default_speed() is used.
         """
@@ -2025,6 +2411,19 @@ motor_a.run_for_degrees(360)
     def run_for_degrees(self, degrees: int, speed: int):
         """Runs the motor for a specified number of degrees.Runs the motor for a specified number of degrees.
 
+        Example:
+
+            from mindstorms import Motor
+            
+            motor_a = Motor('A')
+            
+            # Run the motor 90 degrees clockwise at 30% speed.
+            motor_a.run_for_degrees(90, 30)
+            # Run the motor 90 degrees counterclockwise at maximum (100%) speed.
+            motor_a.run_for_degrees(-90, 100)
+            # Run the motor 360 degrees clockwise at default speed.
+            motor_a.run_for_degrees(360)
+
         :param degrees: The number of degrees the motor should run. F.ex 360 degrees makes the motor run a full rotation
         :param speed: The desired motor’s speed. If no value is specified, the speed set by `set_default_speed()` is used.
         """
@@ -2049,6 +2448,16 @@ motor_a.run_for_rotations(-0.25, 10)
     def run_for_rotations(self, rotations: float, speed: int = None):
         """Runs the motor for a specified number of rotations.Runs the motor for a specified number of rotations.
 
+        Example:
+
+            from mindstorms import Motor
+            
+            motor_a = Motor('A')
+            # Run the motor 0.25 rotations clockwise (90 degrees).
+            motor_a.run_for_rotations(0.25, 90)
+            # Run the motor 0.25 rotations counterclockwise (-90 degrees).
+            motor_a.run_for_rotations(-0.25, 10)
+
         :param rotations: The number of rotations the motor should run.
         :param speed: The desired motor’s speed. If no value is specified, the speed set by set_default_speed() is used.
         """
@@ -2072,6 +2481,16 @@ motor_a.run_for_seconds(3, -30)
 ```python
     def run_for_seconds(self, seconds: float, speed: int):
         """Runs the motor for a specified number of seconds.Runs the motor for a specified number of seconds.
+
+        Example:
+
+            from mindstorms import Motor
+            
+            motor_a = Motor('A')
+            # Run the motor clockwise for half a second at 75% speed.
+            motor_a.run_for_seconds(0.5, 75)
+            # Run the motor counterclockwise for 3 seconds at 30% speed.
+            motor_a.run_for_seconds(3, -30)
 
         :param seconds: The number of seconds the motor should run.
         :param speed: The desired motor’s speed. If no value is specified, the speed set by `set_default_speed()` is used.
@@ -2099,6 +2518,18 @@ motor_a.stop()
     def start(self, speed: int = None):
         """Starts running the motor at the specified speed. The motor will keep on running until you give it another motor command or your program ends.Starts running the motor at the specified speed. The motor will keep on running until you give it another motor command or your program ends.
 
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor_a = Motor('A')
+            
+            motor_a.start(60)
+            # Press on the hub's left button when you want to stop the motor
+            hub.left_button.wait_until_pressed()
+            motor_a.stop()
+
         :param speed: The desired motor’s speed. If no value is specified, the speed set by `set_default_speed()` is used.
         """
         assert -100 <= speed <= 100
@@ -2123,6 +2554,18 @@ motor_a.stop()
 ```python
     def start_at_power(self, power: int):
         """Starts running the motor at the specified power level. The motor will keep on running until you give it another motor command or your program ends.Starts running the motor at the specified power level. The motor will keep on running until you give it another motor command or your program ends.
+
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor_a = Motor('A')
+            
+            motor_a.start_at_power(50)
+            # Press on the Hub's left button when you want the motor to stop.
+            hub.left_button.wait_until_pressed()
+            motor_a.stop()
 
         :param power: The desired motor's power.
         """
@@ -2150,6 +2593,17 @@ motor.stop()
     def stop(self):
         """Stops the motor.
         What the motor does after it stops depends on the action sets in `set_stop_action()`.
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor = Motor('A')
+            
+            motor.start()
+            # Press on the Hub's left button when you want the motor to stop.
+            hub.left_button.wait_until_pressed()
+            motor.stop()
         """
         pass
 ```
@@ -2175,6 +2629,17 @@ motor_a.stop()
 ```python
     def get_speed(self):
         """Returns the actual speed of the motor.
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor_a = Motor('A')
+            
+            motor_a.start()
+            hub.light_matrix.write('Speed =')
+            hub.light_matrix.write(motor_a.get_speed())
+            motor_a.stop()
         """
         pass
 ```
@@ -2198,6 +2663,17 @@ motor_a.stop()
 ```python
     def get_position(self):
         """Returns the actual absolute position of the motor.
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor_a = Motor('A')
+            
+            motor_a.run_for_seconds(1, 100)
+            hub.light_matrix.write('Position =') 
+            hub.light_matrix.write(motor_a.get_position())
+            motor_a.stop()
         """
         pass
 ```
@@ -2223,6 +2699,17 @@ motor_a.stop()
     def get_degrees_counted(self):
         """Returns the motor's relative position of degrees counted.
         You can set the degrees count by using set_degrees_counted().
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor_a = Motor('A')
+            
+            motor_a.run_for_seconds(1, 100)
+            hub.light_matrix.write('degrees counted =') 
+            hub.light_matrix.write(motor_a.get_degrees_counted())
+            motor_a.stop()
         """
         pass
 ```
@@ -2246,6 +2733,17 @@ hub.light_matrix.write(motor_a.get_default_speed())
 ```python
     def get_default_speed(self):
         """Returns the default motor speed.
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor_a = Motor('A')
+            
+            motor_a.set_default_speed(50)
+            motor_a.run_for_rotations(1, 100)
+            hub.light_matrix.write('default speed =') 
+            hub.light_matrix.write(motor_a.get_default_speed())
         """
         pass
 ```
@@ -2270,6 +2768,16 @@ if motor.was_interrupted():
 ```python
     def was_interrupted(self):
         """Checks if the last motor command was interrupted.
+        Example:
+
+            from mindstorms import Motor
+            
+            motor = Motor('A')
+            
+            motor.run_for_rotations(2)
+            if motor.was_interrupted():
+                # The motor did not complete two rotations.
+                print('interrupted')
         """
         pass
 ```
@@ -2294,6 +2802,18 @@ if motor_a.was_stalled():
 ```python
     def was_stalled(self):
         """Checks if the motor was stalled.
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor_a = Motor('A')
+            
+            motor_a.set_stall_detection(True)
+            motor_a.run_for_rotations(2)
+            if motor_a.was_stalled():
+                # The motor did not complete two rotations.
+                hub.light_matrix.write('stalled')
         """
         pass
 ```
@@ -2305,6 +2825,7 @@ Sets the degrees counted to the desired count.
 ```python
     def set_degrees_counted(self, degrees_counted: int):
         """Sets the degrees counted to the desired count.Sets the degrees counted to the desired count.
+
 
         :param degrees_counted: The new degrees counted count.
         """
@@ -2340,6 +2861,24 @@ motor_a.stop()
         This is the default speed value used by the other motor functions when you do not specify a speed value. Setting the default speed does not affect the actual motor speed. This function should be used before another function that runs motors.Sets the default motor speed.
         This is the default speed value used by the other motor functions when you do not specify a speed value. Setting the default speed does not affect the actual motor speed. This function should be used before another function that runs motors.
 
+        Example:
+
+            from mindstorms import Motor
+            from mindstorms.control import wait_for_seconds
+            
+            motor_a = Motor('A')
+            
+            
+            motor_a.set_default_speed(30)
+            # The motor start running for 2 seconds at the default speed (30%)
+            motor_a.run_for_seconds(2)
+            # The motor start running at 85 speed
+            motor_a.start(85)
+            # The default speed is changed to 20%, not the actual motor speed
+            motor_a.set_default_speed(20)
+            wait_for_seconds(2)
+            motor_a.stop()
+
         :param default_speed: The desired default speed.
         """
         assert -100 <= default_speed <= 100
@@ -2372,6 +2911,22 @@ motor_a.run_for_seconds(1, 100)
         Setting the default stop action does not affect the actual motor stop action. This functions should be used before another functions that run or stop motors.Sets the default stop action the motor performs when it stops running.
         Setting the default stop action does not affect the actual motor stop action. This functions should be used before another functions that run or stop motors.
 
+        Example:
+
+            from mindstorms import Motor
+            
+            motor_a = Motor('A')
+            
+            # The motor is free after it completely stops.
+            motor_a.set_stop_action('coast')
+            motor_a.run_for_seconds(1, 100)
+            # The motor keeps braking after it completely stops.
+            motor_a.set_stop_action('brake')
+            motor_a.run_for_seconds(1, 100)
+            # The motor holds its position after it completely stops.
+            motor_a.set_stop_action('hold')
+            motor_a.run_for_seconds(1, 100)
+
         :param action: The desired stop action.
         """
         assert action in ['coast', 'brake', 'hold']
@@ -2394,6 +2949,16 @@ motor.run_for_rotations(2)
 ```python
     def set_stall_detection(self, stop_when_stalled: bool = True):
         """Turns stall detection on or off. Stall detection senses when a motor has been blocked and can’t move. If stall detection has been enabled and a motor is blocked, the motor will be powered off after two seconds and the current motor command will be interrupted. If stall detection has been disabled, the motor will keep trying to run and programs will "get stuck" until the motor is no longer blocked. Stall detection is enabled by default.Turns stall detection on or off. Stall detection senses when a motor has been blocked and can’t move. If stall detection has been enabled and a motor is blocked, the motor will be powered off after two seconds and the current motor command will be interrupted. If stall detection has been disabled, the motor will keep trying to run and programs will "get stuck" until the motor is no longer blocked. Stall detection is enabled by default.
+
+        Example:
+
+            from mindstorms import Motor
+            
+            motor = Motor('A')
+            
+            motor.set_stall_detection(False)
+            motor.run_for_rotations(2)
+            # The program will never proceed to here if the motor is stalled.
 
         :param stop_when_stalled: Choose "True" to enable stall detection or "False" to disable it.
         """
@@ -2431,6 +2996,16 @@ motor_pair.move(3, 'seconds', steering=-100, 100)
     def move(self, amount: float, unit: str = 'cm', steering: int = 0, speed: int = None):
         """Runs both motors simultaneously to move a Driving Base.Runs both motors simultaneously to move a Driving Base.
 
+        Example:
+
+            from mindstorms import MotorPair
+            
+            motor_pair = MotorPair('B', 'A')
+            
+            motor_pair.move(4, 'cm', 0, 50)
+            motor_pair.move(2, 'rotations', steering=100)
+            motor_pair.move(3, 'seconds', steering=-100, 100)
+
         :param amount: The amount of movement in relation to the specified unit. Negative value moves the Driving Base backward instead of forward.
         :param unit: The unit of measurement. When unit is specified as 'cm' or 'in', the amount parameter represents the horizontal distance the Driving Base must travel. The relationship between the motor rotations and distance traveled can be adjusted using the function `set_motor_rotation()`. When unit is specified as 'rotations" or 'degrees', the amount parameter represents how many rotations or degrees the motor must rotate. When unit is specified as 'seconds', the amount parameter represents the duration the motors must run.
         :param steering: The direction the Driving Base is steering. The default 0 value steers the Driving Base straight. Negative value steers the Driving Base to the left and positive value to the right. Minimum and maximum value makes the Driving Base spin on itself.
@@ -2463,6 +3038,17 @@ motor_pair.stop()
         The motors will keep moving at the specified speed until you give them another command or when your programs ends.Starts both motors simultaneously to move a Driving Base.
         The motors will keep moving at the specified speed until you give them another command or when your programs ends.
 
+        Example:
+
+            from mindstorms import MSHub, MotorPair
+            
+            motor_pair = MotorPair('B', 'A')
+            
+            motor_pair.start(-100, 30)
+            # Press on the Hub's right button when you want the motors to stop.
+            hub.right_button.wait_until_pressed()
+            motor_pair.stop()
+
         :param steering: The direction the Driving Base is steering. The default 0 value steers the Driving Base straight. Negative value steers the Driving Base to the left and positive value to the right. minimum and maximum value makes the Driving base spin on itself.
         :param speed: The desired motors speed. If speed is negative, the Driving Base will move backward. If no value is specified, the default speed set by set_default_speed() is used.
         """
@@ -2488,6 +3074,16 @@ motor_pair.stop()
 ```python
     def stop(self):
         """Stops both motors simultaneously, which will stop a Driving Base. What the motors do after they stop depends on the action sets in set_stop_action().
+        Example:
+
+            from mindstorms import MSHub, MotorPair
+            
+            motor_pair = MotorPair('B', 'A')
+            
+            motor_pair.start(-100, 30)
+            # Press on the Hub's right button when you want the motors to stop.
+            hub.right_button.wait_until_pressed()
+            motor_pair.stop()
         """
         pass
 ```
@@ -2506,6 +3102,13 @@ motor_pair.move_tank(10, 'cm', 25, 75)
 ```python
     def move_tank(self, amount: float, unit: str = 'cm', left_speed: int = None, right_speed: int = None):
         """Moves the Driving Base using differential (tank) steering. The speed of each motor can be controlled independently.Moves the Driving Base using differential (tank) steering. The speed of each motor can be controlled independently.
+
+        Example:
+
+            from mindstorms import MotorPair
+            
+            motor_pair = MotorPair('B', 'A')
+            motor_pair.move_tank(10, 'cm', 25, 75)
 
         :param amount: The amount of movement in relation to the specified unit. Negative value moves the Driving Base backward instead of forward.
         :param unit: The unit of measurement. When unit is specified as 'cm' or 'in', the amount parameter represents the horizontal distance the Driving Base must travel. The relationship between the motor rotations and distance traveled can be adjusted using the function set_motor_rotation(). When unit is specified as 'rotations" or 'degrees', the amount parameter represents how many rotations or degrees the motor must rotate. When unit is specified as 'seconds', the amount parameter represents the duration the motors must run.
@@ -2536,6 +3139,17 @@ motor_pair.stop()
     def start_tank(self, left_speed: int, right_speed: int):
         """Starts moving a Driving Base using differential (tank) steering. The speed of each motor can be controlled independently. The motors will keep moving at the specified speed until you give them another command or when your programs ends.Starts moving a Driving Base using differential (tank) steering. The speed of each motor can be controlled independently. The motors will keep moving at the specified speed until you give them another command or when your programs ends.
 
+        Example:
+
+            from mindstorms import MSHub, MotorPair
+            
+            motor_pair = MotorPair('B', 'A')
+            
+            motor_pair.start_tank(100, -100)
+            # Press on the Hub's right button when you want the motors to stop.
+            hub.right_button.wait_until_pressed()
+            motor_pair.stop()
+
         :param left_speed: The left motor's desired speed.
         :param right_speed: The right motor's desired speed.
         """
@@ -2561,6 +3175,17 @@ while True:
 ```python
     def start_at_power(self, power: int, steering: int = 0):
         """Starts moving the Driving Base without speed control. This is useful when using your own control algorithm (e.g. a line-follower). The motors will keep moving at the specified power until you give them another command or when your programs ends.Starts moving the Driving Base without speed control. This is useful when using your own control algorithm (e.g. a line-follower). The motors will keep moving at the specified power until you give them another command or when your programs ends.
+
+        Example:
+
+            from mindstorms import MotorPair, ColorSensor
+            
+            motor_pair = MotorPair('B', 'A')
+            color_sensor = ColorSensor('F')
+            
+            while True:
+                steering = color_sensor.get_reflected_light() - 50
+                motor_pair.start_at_power(50, steering)
 
         :param power: The desired amount of power for the motors. Negative value makes the motors rotate backward.
         :param steering: The direction the Driving Base is steering. The default 0 value steers the Driving Base straight. Negative value steers the Driving Base to the left and positive value to the right. Minimum and maximum value makes the Driving Base spin on itself.
@@ -2592,6 +3217,18 @@ motor_pair.stop()
         This is useful when using your own control algorithm (e.g., a line-follower). The motors will keep moving at the specified power until you give them another command or when your programs ends.Starts moving the Driving Base using differential (tank) steering without speed control.
         This is useful when using your own control algorithm (e.g., a line-follower). The motors will keep moving at the specified power until you give them another command or when your programs ends.
 
+        Example:
+
+            from mindstorms import MSHub, MotorPair
+            
+            hub = MSHub()
+            motor_pair = MotorPair('B', 'A')
+            
+            motor_pair.start_tank_at_power(80, -80)
+            # Press on the Hub's right button when you want the motors to stop.
+            hub.right_button.wait_until_pressed()
+            motor_pair.stop()
+
         :param left_power: The desired amount of power for the left motor. Negative value makes the motors rotate backward.
         :param right_power: The desired amount of power for the right motor. Negative value makes the motors rotate backward.
         """
@@ -2620,6 +3257,17 @@ hub.light_matrix.write(motor_pair_ba.get_default_speed())
 ```python
     def get_default_speed(self):
         """Returns the default motor pair speed.
+        Example:
+
+            from mindstorms import MSHub, Motor
+            
+            hub = MSHub()
+            motor_pair_ba = MotorPair('B', 'A')
+            
+            motor_pair_ba.set_default_speed(50)
+            motor_pair_ba.move(1, 'rotations', 0, 100)
+            hub.light_matrix.write('default speed =') 
+            hub.light_matrix.write(motor_pair_ba.get_default_speed())
         """
         pass
 ```
@@ -2646,6 +3294,16 @@ motor_pair.move(2, 'cm')
         """Sets the distance ratio that a Driving Base travels when both motors run simultaneously one full rotation.
         Setting the default speed does not affect the actual distance ratio. This function should be used before another function that runs motors.Sets the distance ratio that a Driving Base travels when both motors run simultaneously one full rotation.
         Setting the default speed does not affect the actual distance ratio. This function should be used before another function that runs motors.
+
+        Example:
+
+            from mindstorms import MotorPair
+            import math
+            
+            motor_pair = MotorPair('B', 'A')
+            # The MINDSTORMS wheels have a diameter of 5,6 cm, multiplying by "π" gives the circumference.
+            motor_pair.set_motor_rotation(5,6 * math.pi, 'cm')
+            motor_pair.move(2, 'cm')
 
         :param amount: The distance the Driving Base travels when both motors run simultaneously one full rotation. When the wheels are attached directly to the motors axle, the circumference of one wheel should be specified. When using gearing between the wheels and the motors axle, the gearing ratio must be multiplied by one wheel circumference.
         :param unit: The unit of measurement.
@@ -2681,6 +3339,23 @@ motor_pair.stop()
         this is the default speed value used by the other motor pair functions when you do not specify a speed value. Setting the default speed does not affect the actual motors speed. This function should be used before another function that runs motors.Sets the default motor pair speed.
         this is the default speed value used by the other motor pair functions when you do not specify a speed value. Setting the default speed does not affect the actual motors speed. This function should be used before another function that runs motors.
 
+        Example:
+
+            from mindstorms import MotorPair
+            from mindstorms.control import wait_for_seconds
+            
+            motor_pair = MotorPair('B', 'A')
+            
+            motor_pair.set_default_speed(30)
+            # The motor pair rotates for 2 seconds at the default speed (30%).
+            motor_pair.move(2, 'seconds')
+            # The motor pair start rotating at 60% speed.
+            motor_pair.start(0, 60)
+            # The default motor pair speed is set to 20% but the actual motor pair speed remains unchanged.
+            motor_pair.set_default_speed(20)
+            wait_for_seconds(2)
+            motor_pair.stop()
+
         :param default_speed: The desired default motor pair speed.
         """
         assert -100 <= default_speed <= 100
@@ -2712,6 +3387,22 @@ motor_pair.move(1, 'seconds', 0, 100)
         """Sets the default stop action the motor pair performs when motors stop running.
         Setting the default stop action does not affect the actual motor pair stop action. This function should be used before another function that run or stop motor pair.Sets the default stop action the motor pair performs when motors stop running.
         Setting the default stop action does not affect the actual motor pair stop action. This function should be used before another function that run or stop motor pair.
+
+        Example:
+
+            rom mindstorms import MotorPair
+            
+            motor_pair = MotorPair('B', 'A')
+            
+            # The motors are free after their complete stop.
+            motor_pair.set_stop_action('coast')
+            motor_pair.move(1, 'seconds', 0, 100)
+            # The motors keep braking after their complete stop.
+            motor_pair.set_stop_action('brake')
+            motor_pair.move(1, 'seconds', 0, 100)
+            # The motors hold their respective position after their complete stop.
+            motor_pair.set_stop_action('hold')
+            motor_pair.move(1, 'seconds', 0, 100)
 
         :param action: The desired stop action.
         """
@@ -2755,6 +3446,21 @@ else :
 ```python
     def get_color(self):
         """Returns the color the color sensor sees.
+        Example:
+
+            from mindstorms import MSHub, ColorSensor
+            from mindstorms.operator import not_equal_to
+            
+            
+            hub = MSHub()
+            paper_scanner = ColorSensor('E')
+            
+            color = paper_scanner.get_color()
+            if not_equal_to(color, None):
+                hub.status_light.on(color)
+                hub.light_matrix.write('Color ' + color + ' detected')
+            else :
+                hub.light_matrix.write('No color detected')
         """
         pass
 ```
@@ -2803,6 +3509,24 @@ hub.light_matrix.write(rgb_intensity[3])
 ```python
     def get_rgb_intensity(self):
         """Returns the intensity of the red, green and blue color and the overall color intensity.
+        Example:
+
+            from mindstorms import MSHub, ColorSensor
+            from mindstorms.control import wait_for_seconds
+            
+            # Display the red intensity, tuple [0].
+            hub = MSHub()
+            paper_scanner = ColorSensor('E')
+            
+            wait_for_seconds(1)
+            rgb_intensity = paper_scanner.get_rgb_intensity()
+            hub.light_matrix.write('red = ')
+            # Display the red intensity, tuple [0].
+            hub.light_matrix.write(rgb_intensity[0])
+            wait_for_seconds(1)
+            hub.light_matrix.write('overall = ')
+            # Display the overall intensity, tuple [3].
+            hub.light_matrix.write(rgb_intensity[3])
         """
         pass
 ```
@@ -2853,6 +3577,15 @@ color_sensor.wait_until_color('blue')
     def wait_until_color(self, color: str):
         """Waits until the Color Sensor detects the specified color.Waits until the Color Sensor detects the specified color.
 
+        Example:
+
+            from mindstorms import ColorSensor
+            
+            color_sensor = ColorSensor('A')
+            
+            color_sensor.wait_until_color('blue')
+            # Put your own code here
+
         :param color: The name of the color.
         """
         assert color in ['black', 'blue', 'cyan', 'green', 'red', 'violet', 'white', 'yellow' or None]
@@ -2880,6 +3613,20 @@ while True:
 ```python
     def wait_for_new_color(self):
         """Waits until the Color Sensor detects a new color. The first time this method is called, it immediately returns the detected color. After that, it waits until the Color Sensor detects a color that’s different from the color that was detected the last time this method was used.
+        Example:
+
+            from mindstorms import ColorSensor
+            
+            color_sensor = ColorSensor('A')
+            
+            while True:
+                color = color_sensor.wait_for_new_color()
+                if color == 'black':
+                    # Put your own code here
+                    print('black')
+                elif color == 'white':
+                    # Put your own code here
+                    print('white')
         """
         pass
 ```
@@ -2904,6 +3651,16 @@ color_sensor.light_up_all(10)
     def light_up_all(self, brightness: int = 100):
         """Lights up all of the lights on the Color Sensor at the specified brightness. The Color Sensor changes mode to light up, this can affect your program in unexpected ways. For example, the Color Sensor can't read colors when it's in light up mode.Lights up all of the lights on the Color Sensor at the specified brightness. The Color Sensor changes mode to light up, this can affect your program in unexpected ways. For example, the Color Sensor can't read colors when it's in light up mode.
 
+        Example:
+
+            from mindstorms import ColorSensor
+            
+            color_sensor = ColorSensor('A')
+            # Turns on the Color Sensor's lights at 100% (default) brightness.
+            color_sensor.light_up_all()
+            # Turns on the Color Sensor's lights at 10% brightness..
+            color_sensor.light_up_all(10)
+
         :param brightness: The desired brightness in percent of the Color Sensor lights.
         """
         assert 0 <= brightness <= 100
@@ -2927,6 +3684,14 @@ color_sensor.light_up(0, 100, 0)
         """Sets the brightness of each individual lights on the Color Sensor.
         The Color Sensor changes mode to light up, this can affect your program in unexpected ways. For example, the Color Sensor can't read colors when it's in light up mode.Sets the brightness of each individual lights on the Color Sensor.
         The Color Sensor changes mode to light up, this can affect your program in unexpected ways. For example, the Color Sensor can't read colors when it's in light up mode.
+
+        Example:
+
+            from mindstorms import ColorSensor
+            
+            color_sensor = ColorSensor('A')
+            # Turn on one light (light_2) on the Color Sensor at full brightness.
+            color_sensor.light_up(0, 100, 0)
 
         :param light_1: The desired brightness of the first light in percent.
         :param light_2: The desired brightness of the second light in percent.
@@ -2970,6 +3735,19 @@ print('cm:', dist_cm, 'inches:', dist_inches)
     def get_distance_cm(self, short_range: bool = False):
         """Returns the measured distance in centimeters.Returns the measured distance in centimeters.
 
+        Example:
+
+            from mindstorms import DistanceSensor
+            
+            # Initialize the Distance Sensor.
+            wall_detector = DistanceSensor('F')
+            
+            # Measure the distance between the Distance Sensor and object in centimeters and inches.
+            dist_cm = wall_detector.get_distance_cm()
+            dist_inches = wall_detector.get_distance_inches()
+            # Print both results on the console.
+            print('cm:', dist_cm, 'inches:', dist_inches)
+
         :param short_range: Whether or not to use short range mode. Short range mode increases accuracy, but it can only detect nearby objects.
         """
         assert isinstance(short_range, bool)
@@ -2996,6 +3774,19 @@ print('cm:', dist_cm, 'inches:', dist_inches)
     def get_distance_inches(self, short_range: bool = False):
         """Returns the measured distance in inches.Returns the measured distance in inches.
 
+        Example:
+
+            from mindstorms import DistanceSensor
+            
+            # Initialize the Distance Sensor.
+            wall_detector = DistanceSensor('F')
+            
+            # Measure the distance between the Distance Sensor and object in centimeters and inches.
+            dist_cm = wall_detector.get_distance_cm()
+            dist_inches = wall_detector.get_distance_inches()
+            # Print both results on the console.
+            print('cm:', dist_cm, 'inches:', dist_inches)
+
         :param short_range: Whether or not to use short range mode. Short range mode increases accuracy, but it can only detect nearby objects.
         """
         assert isinstance(short_range, bool)
@@ -3006,6 +3797,7 @@ Returns the measured distance as a percentage of the Distance Sensor detection r
 ```python
     def get_distance_percentage(self, short_range: bool = False):
         """Returns the measured distance as a percentage of the Distance Sensor detection range.Returns the measured distance as a percentage of the Distance Sensor detection range.
+
 
         :param short_range: Whether or not to use short range mode. Short range mode increases accuracy, but it can only detect nearby objects.
         """
@@ -3034,6 +3826,19 @@ while True:
 ```python
     def wait_for_distance_farther_than(self, distance: float, unit: str = 'cm', short_range: bool = False):
         """Waits until the measured distance is greater than the specified distance.Waits until the measured distance is greater than the specified distance.
+
+        Example:
+
+            from mindstorms import MSHub, DistanceSensor
+            
+            hub = MSHub()
+            distance_sensor = DistanceSensor('F')
+            
+            while True:
+                distance_sensor.wait_for_distance_farther_than(20, 'cm')
+                hub.light_matrix.write('>')
+                distance_sensor.wait_for_distance_closer_than(20, 'cm')
+                hub.light_matrix.write('<')
 
         :param distance: The target distance to be detected from the sensor to an object.
         :param unit: The unit in which the distance is measured.
@@ -3064,6 +3869,19 @@ while True:
     def wait_for_distance_closer_than(self, distance: float, unit: str = 'cm', short_range: bool = False):
         """Waits until the measured distance is less than the specified distance.Waits until the measured distance is less than the specified distance.
 
+        Example:
+
+            from mindstorms import MSHub, DistanceSensor
+            
+            hub = MSHub()
+            distance_sensor = DistanceSensor('F')
+            
+            while True:
+                distance_sensor.wait_for_distance_farther_than(20, 'cm')
+                hub.light_matrix.write('>')
+                distance_sensor.wait_for_distance_closer_than(20, 'cm')
+                hub.light_matrix.write('<')
+
         :param distance: The target distance to be detected from the sensor to an object.
         :param unit: The unit in which the distance is measured.
         :param short_range: Whether or not to use short range mode. Short range mode increases accuracy, but it can only detect nearby objects.
@@ -3092,6 +3910,17 @@ distance_sensor.light_up_all(0)
     def light_up_all(self, brightness: int = 100):
         """Lights up all of the lights on the Distance Sensor at the specified brightness.Lights up all of the lights on the Distance Sensor at the specified brightness.
 
+        Example:
+
+            from mindstorms import DistanceSensor
+            
+            distance_sensor = DistanceSensor('F')
+            
+            # Turn on the lights at maximum brightness (100%).
+            distance_sensor.light_up_all(100)
+            # Turn off the lights.
+            distance_sensor.light_up_all(0)
+
         :param brightness: The desired brightness in percent of all the distance sensor lights.
         """
         assert 0 <= brightness <= 100
@@ -3112,6 +3941,14 @@ distance_sensor.light_up(100, 20, 0, 0)
 ```python
     def light_up(self, right_top: int = 100, left_top: int = 100, right_bottom: int = 100, left_bottom: int = 100):
         """Light up each individual lights of the Distance Sensor at the specified brightness.Light up each individual lights of the Distance Sensor at the specified brightness.
+
+        Example:
+
+            from mindstorms import DistanceSensor
+            
+            distance_sensor = DistanceSensor('A')
+            # Switch on the top light of the Distance Sensor.
+            distance_sensor.light_up(100, 20, 0, 0)
 
         :param right_top: The brightness in percent of the right top light of the Distance Sensor.
         :param left_top: The brightness in percent of the left top light of the Distance Sensor.
@@ -3154,6 +3991,17 @@ while True:
 ```python
     def is_pressed(self):
         """Checks if the Force Sensor is pressed.
+        Example:
+
+            from mindstorms import MSHub, ForceSensor
+            
+            hub = MSHub
+            door_bell = ForceSensor('E')
+            
+            # Check if the Force Sensor is pressed.
+            while True:
+                if door_bell.is_pressed():
+                    hub.speaker.beep()
         """
         pass
 ```
@@ -3179,6 +4027,18 @@ print('N:', newtons, '=', percentage, '%')
 ```python
     def get_force_newton(self):
         """Returns the measured force in newtons.
+        Example:
+
+            from mindstorms import ForceSensor
+            
+            # Initialize the Force Sensor.
+            door_bell = ForceSensor('E')
+            
+            # Measure the force in newtons and as a percentage.
+            newtons = door_bell.get_force_newton()
+            percentage = door_bell.get_force_percentage()
+            # Print both results on the console.
+            print('N:', newtons, '=', percentage, '%')
         """
         pass
 ```
@@ -3204,6 +4064,18 @@ print('N:', newtons, '=', percentage, '%')
 ```python
     def get_force_percentage(self):
         """Returns the measured force as a percentage of the Force sensor detection range.
+        Example:
+
+            from mindstorms import ForceSensor
+            
+            # Initialize the Force Sensor.
+            door_bell = ForceSensor('E')
+            
+            # Measure the force in newtons and as a percentage.
+            newtons = door_bell.get_force_newton()
+            percentage = door_bell.get_force_percentage()
+            # Print both results on the console.
+            print('N:', newtons, '=', percentage, '%')
         """
         pass
 ```
@@ -3230,6 +4102,18 @@ while True:
 ```python
     def wait_until_pressed(self):
         """Waits until the Force Sensor is pressed.
+        Example:
+
+            from mindstorms import MSHub, ForceSensor
+            
+            hub = MSHub()
+            force_sensor = ForceSensor('E')
+            
+            while True:
+                force_sensor.wait_until_pressed()
+                hub.light_matrix.show_image('GO_DOWN')
+                force_sensor.wait_until_released()
+                hub.light_matrix.show_image('GO_UP')
         """
         pass
 ```
@@ -3254,6 +4138,18 @@ while True:
 ```python
     def wait_until_released(self):
         """Waits until the Force Sensor is released.
+        Example:
+
+            from mindstorms import MSHub, ForceSensor
+            
+            hub = MSHub()
+            force_sensor = ForceSensor('E')
+            
+            while True:
+                force_sensor.wait_until_pressed()
+                hub.light_matrix.show_image('GO_DOWN')
+                force_sensor.wait_until_released()
+                hub.light_matrix.show_image('GO_UP')
         """
         pass
 ```
@@ -3267,6 +4163,7 @@ Returns the result of the inverse cosine function.
     def acos(self, x: float):
         """Returns the result of the inverse cosine function.Returns the result of the inverse cosine function.
 
+
         :param x: 
         """
         pass
@@ -3277,6 +4174,7 @@ Returns the result of the inverse hyperbolic cosine function.
 ```python
     def acosh(self, x: float):
         """Returns the result of the inverse hyperbolic cosine function.Returns the result of the inverse hyperbolic cosine function.
+
 
         :param x: 
         """
@@ -3289,6 +4187,7 @@ Returns the result of the inverse sine function.
     def asin(self, x: float):
         """Returns the result of the inverse sine function.Returns the result of the inverse sine function.
 
+
         :param x: 
         """
         pass
@@ -3299,6 +4198,7 @@ Returns the result of the inverse hyperbolic sine function.
 ```python
     def asinh(self, x: float):
         """Returns the result of the inverse hyperbolic sine function.Returns the result of the inverse hyperbolic sine function.
+
 
         :param x: 
         """
@@ -3311,6 +4211,7 @@ Returns the result of the inverse tangent function.
     def atan(self, x: float):
         """Returns the result of the inverse tangent function.Returns the result of the inverse tangent function.
 
+
         :param x: 
         """
         pass
@@ -3321,6 +4222,7 @@ Returns the result of the arc tangent function of y/x.
 ```python
     def atan2(self, x: float, y: float):
         """Returns the result of the arc tangent function of y/x.Returns the result of the arc tangent function of y/x.
+
 
         :param x: 
         :param y: 
@@ -3334,6 +4236,7 @@ Returns the result of the inverse hyperbolic tangent function.
     def atanh(self, x: float):
         """Returns the result of the inverse hyperbolic tangent function.Returns the result of the inverse hyperbolic tangent function.
 
+
         :param x: 
         """
         pass
@@ -3345,6 +4248,7 @@ Returns a ceiling value of x i.e., the largest integer not greater than x.
     def ceil(self, x: float):
         """Returns a ceiling value of x i.e., the largest integer not greater than x.Returns a ceiling value of x i.e., the largest integer not greater than x.
 
+
         :param x: 
         """
         pass
@@ -3355,6 +4259,7 @@ Returns the value of x with the sign of y.
 ```python
     def copysign(self, x: float, y: float):
         """Returns the value of x with the sign of y.Returns the value of x with the sign of y.
+
 
         :param x: 
         :param y: 
@@ -3368,6 +4273,7 @@ Returns the result of the cosine function.
     def cos(self, x: float):
         """Returns the result of the cosine function.Returns the result of the cosine function.
 
+
         :param x: 
         """
         pass
@@ -3378,6 +4284,7 @@ Returns the result of the hyperbolic cosine function.
 ```python
     def cosh(self, x: float):
         """Returns the result of the hyperbolic cosine function.Returns the result of the hyperbolic cosine function.
+
 
         :param x: 
         """
@@ -3390,6 +4297,7 @@ Returns the result of the conversion from radians to degrees.
     def degrees(self, x: float):
         """Returns the result of the conversion from radians to degrees.Returns the result of the conversion from radians to degrees.
 
+
         :param x: 
         """
         pass
@@ -3400,6 +4308,7 @@ Returns the result of the error function.
 ```python
     def erf(self, x: float):
         """Returns the result of the error function.Returns the result of the error function.
+
 
         :param x: 
         """
@@ -3412,6 +4321,7 @@ Returns the result of the complementary error function.
     def erfc(self, x: float):
         """Returns the result of the complementary error function.Returns the result of the complementary error function.
 
+
         :param x: 
         """
         pass
@@ -3422,6 +4332,7 @@ Returns the result of the exponential function.
 ```python
     def exp(self, x: float):
         """Returns the result of the exponential function.Returns the result of the exponential function.
+
 
         :param x: 
         """
@@ -3434,6 +4345,7 @@ Returns the result of the exponential function of x,  - 1. This function provide
     def expm1(self, x: float):
         """Returns the result of the exponential function of x,  - 1. This function provides greater precision than exp(x) - 1 for small values of x.Returns the result of the exponential function of x,  - 1. This function provides greater precision than exp(x) - 1 for small values of x.
 
+
         :param x: 
         """
         pass
@@ -3444,6 +4356,7 @@ Returns the absolute value of x.
 ```python
     def fabs(self, x: float):
         """Returns the absolute value of x.Returns the absolute value of x.
+
 
         :param x: 
         """
@@ -3456,6 +4369,7 @@ Returns the floor of x i.e., the smallest integer not lesser than x.
     def floor(self, x: float):
         """Returns the floor of x i.e., the smallest integer not lesser than x.Returns the floor of x i.e., the smallest integer not lesser than x.
 
+
         :param x: 
         """
         pass
@@ -3466,6 +4380,7 @@ Returns the remainder of x divided by y.
 ```python
     def fmod(self, x: float, y: float):
         """Returns the remainder of x divided by y.Returns the remainder of x divided by y.
+
 
         :param x: 
         :param y: 
@@ -3482,6 +4397,7 @@ The mathematical formula is: x = m * 2^e.
         The mathematical formula is: x = m * 2^e.Returns the mantissa and the exponent of x, as a pair (m,e).
         The mathematical formula is: x = m * 2^e.
 
+
         :param x: 
         """
         pass
@@ -3492,6 +4408,7 @@ Returns the result of the gamma function.
 ```python
     def gamma(self, x: float):
         """Returns the result of the gamma function.Returns the result of the gamma function.
+
 
         :param x: 
         """
@@ -3504,6 +4421,7 @@ Checks if x is finite.
     def isfinite(self, x: float):
         """Checks if x is finite.Checks if x is finite.
 
+
         :param x: 
         """
         pass
@@ -3514,6 +4432,7 @@ Checks if x is infinite.
 ```python
     def isinf(self, x: float):
         """Checks if x is infinite.Checks if x is infinite.
+
 
         :param x: 
         """
@@ -3526,6 +4445,7 @@ Checks if x is a NaN. NaN stands for Not a Number.
     def isnan(self, x: Any):
         """Checks if x is a NaN. NaN stands for Not a Number.Checks if x is a NaN. NaN stands for Not a Number.
 
+
         :param x: 
         """
         pass
@@ -3536,6 +4456,7 @@ Returns the results of x * 2^exp.
 ```python
     def ldexp(self, x: float):
         """Returns the results of x * 2^exp.Returns the results of x * 2^exp.
+
 
         :param x: 
         """
@@ -3548,6 +4469,7 @@ Returns the result of the natural logarithm of the gamma function.
     def lgamma(self, x: float):
         """Returns the result of the natural logarithm of the gamma function.Returns the result of the natural logarithm of the gamma function.
 
+
         :param x: 
         """
         pass
@@ -3558,6 +4480,7 @@ Returns the result of the natural logarithm function.
 ```python
     def log(self, x: float):
         """Returns the result of the natural logarithm function.Returns the result of the natural logarithm function.
+
 
         :param x: 
         """
@@ -3570,6 +4493,7 @@ Returns the result of the base-10 logarithm function.
     def log10(self, x: float):
         """Returns the result of the base-10 logarithm function.Returns the result of the base-10 logarithm function.
 
+
         :param x: 
         """
         pass
@@ -3580,6 +4504,7 @@ Returns the result of the base-2 logarithm function.
 ```python
     def log2(self, x: float):
         """Returns the result of the base-2 logarithm function.Returns the result of the base-2 logarithm function.
+
 
         :param x: 
         """
@@ -3592,6 +4517,7 @@ Returns the fractional and integral parts of x.
     def modf(self, x: float):
         """Returns the fractional and integral parts of x.Returns the fractional and integral parts of x.
 
+
         :param x: 
         """
         pass
@@ -3602,6 +4528,7 @@ Returns the result of the power function.
 ```python
     def pow(self, x: int, y: int):
         """Returns the result of the power function.Returns the result of the power function.
+
 
         :param x: 
         :param y: 
@@ -3615,6 +4542,7 @@ Returns the result of the conversion from degrees to radians.
     def radians(self, x: float):
         """Returns the result of the conversion from degrees to radians.Returns the result of the conversion from degrees to radians.
 
+
         :param x: 
         """
         pass
@@ -3625,6 +4553,7 @@ Returns the result of the sine function.
 ```python
     def sin(self, x: float):
         """Returns the result of the sine function.Returns the result of the sine function.
+
 
         :param x: 
         """
@@ -3637,6 +4566,7 @@ Returns the result of the hyperbolic sine function.
     def sinh(self, x: float):
         """Returns the result of the hyperbolic sine function.Returns the result of the hyperbolic sine function.
 
+
         :param x: 
         """
         pass
@@ -3647,6 +4577,7 @@ Returns the result of the square root function.
 ```python
     def sqrt(self, x: float):
         """Returns the result of the square root function.Returns the result of the square root function.
+
 
         :param x: 
         """
@@ -3659,6 +4590,7 @@ Returns the result of the tangent function.
     def tan(self, x: float):
         """Returns the result of the tangent function.Returns the result of the tangent function.
 
+
         :param x: 
         """
         pass
@@ -3670,6 +4602,7 @@ Returns the result of the hyperbolic tangent function.
     def tanh(self, x: float):
         """Returns the result of the hyperbolic tangent function.Returns the result of the hyperbolic tangent function.
 
+
         :param x: 
         """
         pass
@@ -3680,6 +4613,7 @@ Returns the truncated integer part of a number.
 ```python
     def trunc(self, x: float):
         """Returns the truncated integer part of a number.Returns the truncated integer part of a number.
+
 
         :param x: value to be rounded toward 0
         """
@@ -3714,6 +4648,16 @@ wait_until(color_sensor.get_reflected_light, greater_than, 50)
     def greater_than(self, a: Any, b: Any):
         """Checks if the specified value a is greater than the specified value b. This is the same as a > b.Checks if the specified value a is greater than the specified value b. This is the same as a > b.
 
+        Example:
+
+            from mindstorms import ColorSensor
+            from mindstorms.control import wait_until
+            from mindstorms.operator import greater_than
+            
+            color_sensor = ColorSensor('A')
+            
+            wait_until(color_sensor.get_reflected_light, greater_than, 50)
+
         :param a: Any value that can be compared to b.
         :param b: Any value that can be compared to a.
         """
@@ -3737,6 +4681,16 @@ wait_until(color_sensor.get_reflected_light, greater_than_or_equal_to, 50)
 ```python
     def greater_than_or_equal_to(self, a: Any, b: Any):
         """Checks if the specified value a is greater than or equal to the specified value b. This is the same as a >= b.Checks if the specified value a is greater than or equal to the specified value b. This is the same as a >= b.
+
+        Example:
+
+            from mindstorms import ColorSensor
+            from mindstorms.control import wait_until
+            from mindstorms.operator import greater_than_or_equal_to
+            
+            color_sensor = ColorSensor('A')
+            
+            wait_until(color_sensor.get_reflected_light, greater_than_or_equal_to, 50)
 
         :param a: Any value that can be compared to b.
         :param b: Any value that can be compared to a.
@@ -3762,6 +4716,16 @@ wait_until(color_sensor.get_reflected_light, less_than, 50)
     def less_than(self, a: Any, b: Any):
         """Checks if the specified value a is less than the specified value b. This is the same as a < b.Checks if the specified value a is less than the specified value b. This is the same as a < b.
 
+        Example:
+
+            from mindstorms import ColorSensor
+            from mindstorms.control import wait_until
+            from mindstorms.operator import less_than
+            
+            color_sensor = ColorSensor('A')
+            
+            wait_until(color_sensor.get_reflected_light, less_than, 50)
+
         :param a: Any value that can be compared to b.
         :param b: Any value that can be compared to a.
         """
@@ -3785,6 +4749,16 @@ wait_until(color_sensor.get_reflected_light, less_than_or_equal_to, 50)
 ```python
     def less_than_or_equal_to(self, a: Any, b: Any):
         """Checks if the specified value a is less than or equal to the specified value b. This is the same as a <= b.Checks if the specified value a is less than or equal to the specified value b. This is the same as a <= b.
+
+        Example:
+
+            from mindstorms import ColorSensor
+            from mindstorms.control import wait_until
+            from mindstorms.operator import less_than_or_equal_to
+            
+            color_sensor = ColorSensor('A')
+            
+            wait_until(color_sensor.get_reflected_light, less_than_or_equal_to, 50)
 
         :param a: Any value that can be compared to b.
         :param b: Any value that can be compared to a.
@@ -3810,6 +4784,16 @@ wait_until(color_sensor.get_color, equal_to, 'red')
     def equal_to(self, a: Any, b: Any):
         """Checks if the specified value a is equal to the specified value b. This is the same as a == b.Checks if the specified value a is equal to the specified value b. This is the same as a == b.
 
+        Example:
+
+            from mindstorms import ColorSensor
+            from mindstorms.control import wait_until
+            from mindstorms.operator import equal_to
+            
+            color_sensor = ColorSensor('A')
+            
+            wait_until(color_sensor.get_color, equal_to, 'red')
+
         :param a: Any value that can be compared to b.
         :param b: Any value that can be compared to a.
         """
@@ -3833,6 +4817,16 @@ wait_until(color_sensor.get_color, not_equal_to, None)
 ```python
     def not_equal_to(self, a: Any, b: Any):
         """Checks if the specified value a is not equal to the specified value b. This is the same as a != b.Checks if the specified value a is not equal to the specified value b. This is the same as a != b.
+
+        Example:
+
+            from mindstorms import ColorSensor
+            from mindstorms.control import wait_until
+            from mindstorms.operator import not_equal_to
+            
+            color_sensor = ColorSensor('A')
+            
+            wait_until(color_sensor.get_color, not_equal_to, None)
 
         :param a: Any value that can be compared to b.
         :param b: Any value that can be compared to a.
@@ -3862,6 +4856,17 @@ hub.speaker.beep(60, 0.2)
     def wait_for_seconds(self, seconds: float):
         """Waits for a specified number of seconds before continuing the program.Waits for a specified number of seconds before continuing the program.
 
+        Example:
+
+            from mindstorms import MSHub
+            from mindstorms.control import wait_for_seconds
+            
+            hub = MSHub()
+            
+            # Wait for 3 seconds (pause the program flow).
+            wait_for_seconds(3)
+            hub.speaker.beep(60, 0.2)
+
         :param seconds: The time to wait, specified in seconds.
         """
         pass
@@ -3887,6 +4892,19 @@ hub.status_light.on('red')
 ```python
     def wait_until(self, get_value_function: Callable, operator_function: Callable, target_value: Any):
         """Waits until the specified condition is True before continuing with the program.Waits until the specified condition is True before continuing with the program.
+
+        Example:
+
+            from mindstorms import MSHub, ColorSensor
+            from mindstorms.control import wait_until
+            from mindstorms.operator import equal_to
+            
+            hub = MSHub()
+            color_sensor = ColorSensor('E')
+            
+            # Wait until the color sensor sees a red color
+            wait_until(color_sensor.get_color, equal_to, 'red')
+            hub.status_light.on('red')
 
         :param get_value_function: The name of a function, without parenthesis, that returns a value you want to compare to the specified target value.
         :param operator_function: The name of a logical operator function, without the parenthesis, that compares two arguments. Check the Mindstorms operator library for the available operator functions.
@@ -3929,6 +4947,20 @@ hub.light_matrix.write(timer.now())
 ```python
     def reset(self):
         """Resets the Timer to 0.
+        Example:
+
+            from mindstorms import MSHub
+            from mindstorms.control import Timer
+            
+            hub = MSHub()
+            timer = Timer()
+            
+            # Reset the timer.
+            timer.reset()
+            
+            # Display on the light matrix the timer count.
+            hub.light_matrix.write('timer =')
+            hub.light_matrix.write(timer.now())
         """
         pass
 ```
@@ -3956,6 +4988,20 @@ hub.light_matrix.write(timer.now())
 ```python
     def now(self):
         """Returns the timer count in seconds.
+        Example:
+
+            from mindstorms import MSHub
+            from mindstorms.control import Timer
+            
+            hub = MSHub()
+            timer = Timer()
+            
+            # Reset the timer.
+            timer.reset()
+            
+            # Display on the light matrix the timer count.
+            hub.light_matrix.write('timer =')
+            hub.light_matrix.write(timer.now())
         """
         pass
 ```
